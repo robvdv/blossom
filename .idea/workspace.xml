@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="699ef628-7930-4ebc-8d66-f79758af42d6" name="Default" comment="" />
+    <list default="true" id="699ef628-7930-4ebc-8d66-f79758af42d6" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="src.iws" />
     <ignored path=".idea/workspace.xml" />
+    <file path="/Dummy.txt" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1471668976336" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,10 +77,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="blossom.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="blossom.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/py/blossom.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="116" selection-start="634" selection-end="634" vertical-scroll-proportion="0.4116945">
+            <state line="23" column="49" selection-start="634" selection-end="634" vertical-scroll-proportion="-13.8">
               <folding>
                 <element signature="e#22#35#0" expanded="true" />
               </folding>
@@ -84,10 +88,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/py/templates/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="52" selection-start="738" selection-end="738" vertical-scroll-proportion="-8.75">
+            <state line="136" column="72" selection-start="5337" selection-end="5337" vertical-scroll-proportion="-0.1966627">
               <folding />
             </state>
           </provider>
@@ -100,13 +104,21 @@
       <setting name="OPEN_NEW_TAB" value="false" />
     </FindUsagesManager>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitLogSettings">
+    <option name="myDateState">
+      <MyDateState />
+    </option>
+  </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
     <option name="x" value="-1" />
     <option name="width" value="1922" />
     <option name="height" value="1036" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
     <OptionsSetting value="true" id="Remove" />
     <OptionsSetting value="true" id="Checkout" />
@@ -200,7 +212,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="MemberChooser.sorted" value="false" />
-    <property name="options.lastSelected" value="preferences.fileTypes" />
+    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
@@ -499,19 +511,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/py/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="52" selection-start="738" selection-end="738" vertical-scroll-proportion="-8.75">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/py/blossom.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="116" selection-start="634" selection-end="634" vertical-scroll-proportion="0.4116945">
+        <state line="23" column="49" selection-start="634" selection-end="634" vertical-scroll-proportion="-13.8">
           <folding>
             <element signature="e#22#35#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/py/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="136" column="72" selection-start="5337" selection-end="5337" vertical-scroll-proportion="-0.1966627">
+          <folding />
         </state>
       </provider>
     </entry>
