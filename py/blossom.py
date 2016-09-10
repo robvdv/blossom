@@ -8,6 +8,9 @@ import re
 import datetime
 import math
 import pickle
+import serial
+import struct
+import comms
 
 from flask import Flask, render_template, session, request
 from flask_socketio import SocketIO, emit, join_room, leave_room, \
@@ -18,45 +21,42 @@ from flask_socketio import SocketIO, emit, join_room, leave_room, \
 # the best option based on installed packages.
 async_mode = None
 
+pointsData = 0
+
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
 socketio = SocketIO(app, async_mode=async_mode)
 thread = None
+lastMessageSentTime = datetime.datetime.now()
 
-
-print('############# Starting #######')
+print('Starting Blossom...')
 
 def background_thread():
-    """Example of how to send server generated events to clients."""
     count = 0
     while True:
         socketio.sleep(10)
         count += 1
+        print('comtest.sendFrame(count)')
+        comtest.sendFrame(count)
         socketio.emit('my response',
                       {'data': 'Server generated event', 'count': count},
                       namespace='/test')
-
 
 @app.route('/')
 def index():
     return render_template('index.html', async_mode=socketio.async_mode)
 
-@socketio.on('circle size', namespace='/test')
-def test_message(message):
-    print('######>>>>>>>>>>##############')
-    session['receive_count'] = session.get('receive_count', 0) + 1
-    emit('circle size',
-         {'data': message['data'], 'count': session['receive_count']})
-
 @socketio.on('points', namespace='/test')
 def test_message(message):
-    data = message['data']
-    print('data.length: ' + str(len(data)))
-    #print('data' + str(data))
-
-    session['receive_count'] = session.get('receive_count', 0) + 1
-    emit('points received',
-         {'data': message['data'], 'count': session['receive_count']})
+    global pointsData
+    global lastMessageSentTime
+    pointsData = message['data']
+    timeDiff = datetime.datetime.now() - lastMessageSentTime
+    if timeDiff.microseconds >= 20000:
+        print('data.length: ' + str(len(pointsData)))
+        #print('sending data: ' + str(pointsData) + "\n")
+        lastMessageSentTime = datetime.datetime.now()
+        comms.sendFrame(pointsData)
 
 
 

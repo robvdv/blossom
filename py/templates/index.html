@@ -82,8 +82,16 @@
       });
 
       var comms = window.comms = {};
+
+      comms.lastSentMs = 0;
+      comms.sendThrottleMs = 20;
+
       comms.sendPoints = function() {
-        socket.emit('points', {data: grapher.points.splice(0, grapher.pointsPerFrame) });
+        if ((new Date().getTime()) < (comms.lastSentMs + comms.sendThrottleMs)) {
+          return;
+        }
+        comms.lastSentMs = new Date().getTime();
+        socket.emit('points', {data: grapher.points.splice(0, grapher.pointsPerFrame + 1) });
       };
 
       socket.on('points received', function (msg) {
@@ -124,12 +132,15 @@
         grapher.pointsPerFrame = 0;
       };
 
-      grapher.calcCycle = function( pointsPerFrame, circleSize, circleRatio, smallCirclePhase, redMin, redMax, greenMin, greenMax, blueMin, blueMax ) {
+      grapher.calcCycle = function( tone, pointsPerFrame, circleSize, circleRatio, smallCirclePhase, redMin, redMax, greenMin, greenMax, blueMin, blueMax ) {
+        // push in the tone/frame start config
+        grapher.points[0] = [0, 0, Math.floor(tone / 256), tone % 256];
+
+        // push in the points data
         grapher.pointsPerFrame = pointsPerFrame;
         var frameMult = 360 / pointsPerFrame;
         var bigCircleMultiplier = (circleRatio / 100);
         var sizeMultiplier = (circleSize / 100);
-
 
         var redMinCutoff = (redMin) / 100;
         var redMaxCutoff = (redMax) / 100;
@@ -138,7 +149,7 @@
         var blueMinCutoff = (blueMin) / 100;
         var blueMaxCutoff = (blueMax) / 100;
 
-        for (var i = 0; i < pointsPerFrame; i++) {
+        for (var i = 1; i <= pointsPerFrame; i++) {
           var degrees = frameMult * i;
           var radians = degrees * (Math.PI / 180);
 
@@ -162,7 +173,7 @@
           var green = ((hypotenuse >= greenMinCutoff) && (hypotenuse <= greenMaxCutoff)) ? grapher.greenMask : 0;
           var blue = ((hypotenuse >= blueMinCutoff) && (hypotenuse <= blueMaxCutoff)) ? grapher.blueMask : 0;
 
-          grapher.points[i] = [Math.floor(posX), Math.floor(posY), red + green + blue];
+          grapher.points[i] = [0, Math.floor(posX), Math.floor(posY), red + green + blue];
         }
       };
 
@@ -174,20 +185,21 @@
         var fromX, fromY, lastX, lastY;
         var red, green, blue;
 
-        for (var i = 0; i < pointsPerFrame; i++) {
-          if (i === 0) {
-            fromX = points[pointsPerFrame - 1][0];
-            fromY = points[pointsPerFrame - 1][1];
+        // ignore the first config point
+        for (var i = 1; i <= pointsPerFrame; i++) {
+          if (i === 1) {
+            fromX = points[pointsPerFrame][1];
+            fromY = points[pointsPerFrame][2];
           } else {
-            fromX = points[i - 1][0];
-            fromY = points[i - 1][1];
+            fromX = points[i - 1][1];
+            fromY = points[i - 1][2];
           }
           context.beginPath();
           context.moveTo(fromX, fromY);
-          context.lineTo(points[i][0], points[i][1]);
-          red = (grapher.redMask & points[i][2]) * 255;
-          green = (grapher.greenMask & points[i][2]) * 255;
-          blue = (grapher.blueMask & points[i][2]) * 255;
+          context.lineTo(points[i][1], points[i][2]);
+          red = (grapher.redMask & points[i][3]) * 255;
+          green = (grapher.greenMask & points[i][3]) * 255;
+          blue = (grapher.blueMask & points[i][3]) * 255;
           context.strokeStyle = 'rgb(' + red + ','  + green + ','  + blue + ')';
           //context.strokeStyle = 'rgb(255, 0 , 0)';
           context.stroke();
@@ -202,7 +214,7 @@
       grapher.writePoints = function() {
         var text = '';
         for (var i = 0; i < grapher.pointsPerFrame; i++) {
-          text += '[' + grapher.points[i][0] + ',' + grapher.points[i][1] + ',' + grapher.points[i][2] + ']';
+          text += '[' + grapher.points[i][0] + ',' + grapher.points[i][1] + ',' + grapher.points[i][2] +  ',' + grapher.points[i][3] + ']';
         }
         harness.$pointsText.text( text );
       };
@@ -213,6 +225,7 @@
         //frames, circleSize, circleRatio, smallCirclePhase, redPhase, greenPhase, bluePhase
         grapher.clear();
         grapher.calcCycle(
+            sliders['tone'].value,
             sliders['points-per-frame'].value,
             sliders['circle-size'].value,
             sliders['circle-ratio'].value,
@@ -296,9 +309,9 @@
       <span class="slider-val"></span>
     </div>
     <div class="col-sm-7">
-      <input class="slider" id="points-per-frame" data-event="points per frame" type="text" data-slider-min="2" data-slider-max="128"
+      <input class="slider" id="points-per-frame" data-event="points per frame" type="text" data-slider-min="2" data-slider-max="360"
              data-slider-step="1"
-             data-slider-value="128"/>
+             data-slider-value="120"/>
     </div>
   </div>
 
