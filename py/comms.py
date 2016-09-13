@@ -17,7 +17,7 @@ ser.flushInput()
 ser.setDTR()
 time.sleep(1)
 
-ser = serial.Serial('/dev/ttyUSB0', 115200)
+ser = serial.Serial('/dev/ttyUSB0', 115200)   #9600, 14400, 19200, 28800, 38400, 57600, or 115200.
 
 # reset the arduino
 ser.setDTR(level=False)
@@ -47,6 +47,9 @@ def sendFrame(pointsData):
             frames.append(cell)
 
     ser.write(frames)
+
+
+def getMessages():
     inp = ser.read(ser.inWaiting())
     if inp:
         print(inp)

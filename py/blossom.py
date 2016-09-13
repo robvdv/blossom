@@ -32,15 +32,9 @@ lastMessageSentTime = datetime.datetime.now()
 print('Starting Blossom...')
 
 def background_thread():
-    count = 0
     while True:
-        socketio.sleep(10)
-        count += 1
-        print('comtest.sendFrame(count)')
-        comtest.sendFrame(count)
-        socketio.emit('my response',
-                      {'data': 'Server generated event', 'count': count},
-                      namespace='/test')
+        time.sleep(1)
+        comms.getMessages()
 
 @app.route('/')
 def index():
@@ -57,6 +51,8 @@ def test_message(message):
         #print('sending data: ' + str(pointsData) + "\n")
         lastMessageSentTime = datetime.datetime.now()
         comms.sendFrame(pointsData)
+        comms.getMessages()
+
 
 
 
