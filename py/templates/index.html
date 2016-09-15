@@ -24,11 +24,37 @@
 <div class="container">
   <h1>Blossom</h1>
 
-  <p>Async mode is: <b>{{ async_mode }}</b></p>
+  <div class="row">
+    <div class="col-sm-3">
+      Async mode
+    </div>
+    <div class="col-sm-3">
+      {{ async_mode }}
+    </div>
+    <div class="col-sm-3">
+      ping/pong latency (ms)
+    </div>
+    <div class="col-sm-3">
+      <span id="ping-pong"></span>
+    </div>
+  </div>
 
-  <p>Average ping/pong latency: <b><span id="ping-pong"></span>ms</b></p>
+  <div class="row">
+    <div class="col-sm-3">
+      Tone frequency
+    </div>
+    <div class="col-sm-3">
+      <span id="tone-frequency"></span>
+    </div>
+    <div class="col-sm-3">
 
-  <h2>Settings</h2>
+    </div>
+    <div class="col-sm-3">
+
+    </div>
+  </div>
+
+
 
   <div class="row">
     <div class="col-sm-4">
@@ -41,6 +67,48 @@
       <input class="slider" id="tone" data-event="tone" type="text" data-slider-min="0" data-slider-max="1024"
              data-slider-step="1"
              data-slider-value="50"/>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-4">
+      Tone Frequency/Frame Ratio
+    </div>
+    <div class="col-sm-1">
+      <span class="slider-val"></span>
+    </div>
+    <div class="col-sm-7">
+      <input class="slider" id="tone-frequency-ratio" data-event="tone frequency ratio" type="text" data-slider-min="0" data-slider-max="100"
+             data-slider-step="1"
+             data-slider-value="4"/>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-4">
+      Tone Frequency Point Offset
+    </div>
+    <div class="col-sm-1">
+      <span class="slider-val"></span>
+    </div>
+    <div class="col-sm-7">
+      <input class="slider" id="tone-frequency-point-offset" data-event="tone frequency ratio" type="text" data-slider-min="0" data-slider-max="100"
+             data-slider-step="1"
+             data-slider-value="4"/>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-4">
+      Tone Amplitude
+    </div>
+    <div class="col-sm-1">
+      <span class="slider-val"></span>
+    </div>
+    <div class="col-sm-7">
+      <input class="slider" id="tone-amplitude" data-event="tone" type="text" data-slider-min="0" data-slider-max="100"
+             data-slider-step="1"
+             data-slider-value="25"/>
     </div>
   </div>
 
@@ -149,7 +217,7 @@
   </div>
 
   <div class="row">
-    <div class="col-sm-4">
+    <div class="col-sm-3">
       <canvas id="pointPattern" width= "255" height="255">
 
       </canvas>
@@ -159,8 +227,11 @@
 
       </canvas>
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-5">
       <textarea id="points-text">
+
+      </textarea>
+      <textarea id="wave-text">
 
       </textarea>
     </div>

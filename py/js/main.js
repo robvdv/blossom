@@ -73,6 +73,8 @@ $(document).ready(function () {
 	pointPattern.init = function() {
 		pointPattern.$canvas = $('#pointPattern');
 		pointPattern.$pointsText = $('#points-text'); // split this out
+		pointPattern.$waveText = $('#wave-text'); // split this out
+		pointPattern.$toneFrequency = $('#tone-frequency'); // split this out
 		pointPattern.canvas = pointPattern.$canvas[0];
 		pointPattern.context = pointPattern.canvas.getContext("2d");
 	};
@@ -120,7 +122,7 @@ $(document).ready(function () {
 		grapher.pointsPerFrame = 0;
 	};
 
-	grapher.calcCycle = function( tone, pointsPerFrame, circleSize, circleRatio, smallCirclePhase, redMin, redMax, greenMin, greenMax, blueMin, blueMax ) {
+	grapher.calcCycle = function( tone, toneFrequencyRatio, toneFrequencyOffset, toneAmplitude, pointsPerFrame, circleSize, circleRatio, smallCirclePhase, redMin, redMax, greenMin, greenMax, blueMin, blueMax ) {
 		// push in the tone/frame start config
 		grapher.points[0] = [0, 0, Math.floor(tone / 256), tone % 256];
 		grapher.soundWave = [];
@@ -166,14 +168,14 @@ $(document).ready(function () {
 		}
 
 		var wavePatternOffset = 0; // adjust for offsets later
-		var wavePattenCycleRatio = 1; // number of point patterns to draw per wave cycle
+		var wavePattenCycleRatio = toneFrequencyRatio / 8; // number of point patterns to draw per wave cycle
 		var waveBytes = (pointsPerFrame * wavePattenCycleRatio) + wavePatternOffset;
 
 		for (var i = 0; i < waveBytes; i++) {
 			var radians = i * (Math.PI / 180) * (360 / waveBytes);
 			var amplitudeMultiplier = 1;
 			var waveAmplitude = (Math.sin(radians) + 1) / 2 * amplitudeMultiplier; // 0 - 2 range
-			grapher.soundWave[i] = Math.floor(waveAmplitude * 255);
+			grapher.soundWave[i] = Math.floor(waveAmplitude * 255 * toneAmplitude / 100);
 		}
 
 	};
@@ -222,17 +224,19 @@ $(document).ready(function () {
 			var waveArrayPos = Math.floor(i * (wave.length / canvasWidth));
 			context.beginPath();
 			context.moveTo(i, canvasHeight);
-			context.lineTo(i, wave[waveArrayPos]);
+			context.lineTo(i, grapher.heightWaves - wave[waveArrayPos]);
 			context.strokeStyle = 'rgb(0,0,0)';
 			context.stroke();
 
 			// each byte of sound wave data is equal to 8 points
 			pointPos = ((waveArrayPos * 8) + 1) % pointsPerFrame;
 			pointPosNext = (((waveArrayPos + 1) * 8) + 1) % pointsPerFrame;
-			var yPosFrom, yPosTo;
+			var yPosFrom, yPosTo, xPosFrom, xPosTo;
 			// draw the galvo/point pattern
 			yPosFrom = points[pointPos][2];
 			yPosTo = points[pointPosNext][2];
+			xPosFrom = points[pointPos][1];
+			xPosTo = points[pointPosNext][1];
 
 			context.beginPath();
 			context.moveTo(i, yPosFrom);
@@ -241,10 +245,25 @@ $(document).ready(function () {
 			green = (grapher.greenMask & points[pointPos][3]) * 255;
 			blue = (grapher.blueMask & points[pointPos][3]) * 255;
 			context.strokeStyle = 'rgb(' + red + ','  + green + ','  + blue + ')';
+
+			context.stroke();
+			context.beginPath();
+			context.moveTo(i, xPosFrom);
+			context.lineTo(i, xPosTo);
+			red = (grapher.redMask & points[pointPos][3]) * 255;
+			green = (grapher.greenMask & points[pointPos][3]) * 255;
+			blue = (grapher.blueMask & points[pointPos][3]) * 255;
+			context.strokeStyle = 'rgb(' + red + ','  + green + ','  + blue + ')';
 			context.stroke();
 
 		}
 	};
+
+	grapher.updateStats = function() {
+		var freq = 31372 / grapher.soundWave.length;
+		pointPattern.$toneFrequency.text( freq );
+	}
+
 
 	grapher.clear = function() {
 		grapher.contextPoints.clearRect(0, 0, grapher.widthPoints, grapher.heightPoints );
@@ -259,6 +278,15 @@ $(document).ready(function () {
 		pointPattern.$pointsText.text( text );
 	};
 
+	grapher.writeTone = function() {
+		var text = '[' + grapher.soundWave[0];
+		for (var i = 1; i < grapher.soundWave.length; i++) {
+			text += ',' + grapher.soundWave[i];
+		}
+		text += ']';
+		pointPattern.$waveText.text( text );
+	};
+
 	grapher.init(pointPattern, wavePattern);
 
 	function drawCircle() {
@@ -266,6 +294,9 @@ $(document).ready(function () {
 		grapher.clear();
 		grapher.calcCycle(
 			sliders['tone'].value,
+			sliders['tone-frequency-ratio'].value,
+			sliders['tone-frequency-point-offset'].value,
+			sliders['tone-amplitude'].value,
 			sliders['points-per-frame'].value,
 			sliders['circle-size'].value,
 			sliders['circle-ratio'].value,
@@ -280,6 +311,8 @@ $(document).ready(function () {
 		grapher.drawCycle();
 		grapher.drawWavePattern();
 		grapher.writePoints();
+		grapher.writeTone();
+		grapher.updateStats();
 		comms.sendPoints();
 	}
 

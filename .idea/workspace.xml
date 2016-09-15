@@ -2,25 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="699ef628-7930-4ebc-8d66-f79758af42d6" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/py/css/main.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/py/js/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/py/blossom.py" afterPath="$PROJECT_DIR$/py/blossom.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/py/templates/index.html" afterPath="$PROJECT_DIR$/py/templates/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/py/css/main.css" afterPath="$PROJECT_DIR$/py/css/main.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/py/js/main.js" afterPath="$PROJECT_DIR$/py/js/main.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="src.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1473756529113" ignored="false" />
+    <file path="/Dummy.txt" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1473939009416" ignored="false" />
     <file path="/blossom.py" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1473913393568" ignored="false" />
     <file path="/flaskthread.py" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1471693703224" ignored="false" />
     <file path="/comtest.py" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1471693740904" ignored="false" />
     <file path="/comms.py" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1473578551870" ignored="false" />
-    <file path="/index.html" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1473914589364" ignored="false" />
+    <file path="/index.html" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1473950438323" ignored="false" />
     <file path="$PROJECT_DIR$/../../../tal/tal_mobi/build.xml" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1473174113173" ignored="false" />
     <file path="$PROJECT_DIR$/../../../tal/tal_mobi/dev/js/app/config.js" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1473172873601" ignored="false" />
     <file path="$PROJECT_DIR$/../../../tal/tal_mobi/dev/templates/content.haxdebug.html" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1473232333386" ignored="false" />
     <file path="$PROJECT_DIR$/../../../tal/tal_mobi/dev/js/main.js" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1473172865003" ignored="false" />
-    <file path="/main.js" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1473923925069" ignored="false" />
+    <file path="/main.js" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1473954466298" ignored="false" />
     <file path="/a.dummy" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1473578915877" ignored="false" />
     <file path="$PROJECT_DIR$/../../../tal/tal_mobi/dev/index.html" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1473172865003" ignored="false" />
     <file path="$PROJECT_DIR$/../../../tal/tal_mobi/dev/js/app/talAnalytics.js" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1473172873601" ignored="false" />
@@ -45,7 +44,7 @@
     <file path="$PROJECT_DIR$/../../../tal/tal_mobi/dev/js/app/screens/cartScreen.js" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1473172873601" ignored="false" />
     <file path="$PROJECT_DIR$/../../../tal/tal_mobi/dev/js/app/screens/profileScreen.js" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1473172873601" ignored="false" />
     <file path="$PROJECT_DIR$/../../../tal/tal_mobi/dev/js/app/models/Offers.js" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1473172873601" ignored="false" />
-    <file path="/main.css" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1473914600076" ignored="false" />
+    <file path="/main.css" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1473950591922" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,7 +175,7 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/py/templates/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="157" column="29" selection-start="4423" selection-end="4434" vertical-scroll-proportion="-6.408163">
+            <state line="220" column="71" selection-start="5999" selection-end="5999" vertical-scroll-proportion="-3.9183674">
               <folding />
             </state>
           </provider>
@@ -185,7 +184,7 @@
       <file leaf-file-name="main.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/py/css/main.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="13" selection-start="69" selection-end="69" vertical-scroll-proportion="0.0">
+            <state line="9" column="11" selection-start="160" selection-end="160" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -194,7 +193,7 @@
       <file leaf-file-name="main.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/py/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="173" column="26" selection-start="6564" selection-end="6564" vertical-scroll-proportion="0.45754716">
+            <state line="265" column="50" selection-start="9719" selection-end="9719" vertical-scroll-proportion="0.44622794">
               <folding />
             </state>
           </provider>
@@ -535,6 +534,13 @@
       <option name="USE_PATTERN" value="false" />
       <method />
     </configuration>
+    <configuration default="true" type="JavascriptDebugSession" factoryName="Local" singleton="true">
+      <JSDebuggerConfigurationSettings>
+        <option name="engineId" />
+        <option name="fileUrl" />
+      </JSDebuggerConfigurationSettings>
+      <method />
+    </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -598,7 +604,11 @@
       <created>1473756530592</created>
       <updated>1473756530592</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Added sound wave generation and rendering">
+      <created>1473939010931</created>
+      <updated>1473939010931</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -672,7 +682,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="WIP" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added sound wave generation and rendering" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -689,6 +699,7 @@
     <MESSAGE value="Workspace" />
     <MESSAGE value="Basic working single colour no sound" />
     <MESSAGE value="WIP" />
+    <MESSAGE value="Added sound wave generation and rendering" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -815,23 +826,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/py/css/main.css">
+    <entry file="file://$PROJECT_DIR$/py/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="13" selection-start="69" selection-end="69" vertical-scroll-proportion="0.0">
+        <state line="220" column="71" selection-start="5999" selection-end="5999" vertical-scroll-proportion="-3.9183674">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/py/templates/index.html">
+    <entry file="file://$PROJECT_DIR$/py/css/main.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="157" column="29" selection-start="4423" selection-end="4434" vertical-scroll-proportion="-6.408163">
+        <state line="9" column="11" selection-start="160" selection-end="160" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/py/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="173" column="26" selection-start="6564" selection-end="6564" vertical-scroll-proportion="0.45754716">
+        <state line="265" column="50" selection-start="9719" selection-end="9719" vertical-scroll-proportion="0.44622794">
           <folding />
         </state>
       </provider>

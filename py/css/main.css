@@ -7,7 +7,11 @@
   background-color: black;
 }
 #points-text {
-  width: 255px;
+  width: 49%;
+  height: 255px;
+}
+#wave-text {
+  width: 49%;
   height: 255px;
 }
 #wavePattern {
