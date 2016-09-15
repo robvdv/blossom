@@ -1,0 +1,17 @@
+#ex1Slider .slider-selection {
+  background: #BABABA;
+}
+#pointPattern {
+  width: 255px;
+  height: 255px;
+  background-color: black;
+}
+#points-text {
+  width: 255px;
+  height: 255px;
+}
+#wavePattern {
+  width: 360px;
+  height: 255px;
+  background-color: darkslategrey;
+}
