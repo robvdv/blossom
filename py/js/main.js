@@ -124,7 +124,7 @@ $(document).ready(function () {
 
 	grapher.calcCycle = function( tone, toneFrequencyRatio, toneFrequencyOffset, toneAmplitude, pointsPerFrame, circleSize, circleRatio, smallCirclePhase, redMin, redMax, greenMin, greenMax, blueMin, blueMax ) {
 		// push in the tone/frame start config
-		grapher.points[0] = [0, 0, Math.floor(tone / 256), tone % 256];
+		grapher.points = [1];
 		grapher.soundWave = [];
 
 		// push in the points data
@@ -140,7 +140,7 @@ $(document).ready(function () {
 		var blueMinCutoff = (blueMin) / 100;
 		var blueMaxCutoff = (blueMax) / 100;
 
-		for (var i = 1; i <= pointsPerFrame; i++) {
+		for (var i = 0; i < pointsPerFrame; i++) {
 			var degrees = frameMult * i;
 			var radians = degrees * (Math.PI / 180);
 
@@ -164,7 +164,7 @@ $(document).ready(function () {
 			var green = ((hypotenuse >= greenMinCutoff) && (hypotenuse <= greenMaxCutoff)) ? grapher.greenMask : 0;
 			var blue = ((hypotenuse >= blueMinCutoff) && (hypotenuse <= blueMaxCutoff)) ? grapher.blueMask : 0;
 
-			grapher.points[i] = [0, Math.floor(posX), Math.floor(posY), red + green + blue];
+			grapher.points[i] = [Math.floor(posX), Math.floor(posY), red + green + blue];
 		}
 
 		var wavePatternOffset = 0; // adjust for offsets later
@@ -188,22 +188,21 @@ $(document).ready(function () {
 		var red, green, blue;
 
 		// ignore the first config point
-		for (var i = 1; i <= pointsPerFrame; i++) {
-			if (i === 1) {
-				fromX = points[pointsPerFrame][1];
-				fromY = points[pointsPerFrame][2];
+		for (var i = 0; i < pointsPerFrame; i++) {
+			if (i === 0) {
+				fromX = points[pointsPerFrame - 1][0];
+				fromY = points[pointsPerFrame - 1][1];
 			} else {
-				fromX = points[i - 1][1];
-				fromY = points[i - 1][2];
+				fromX = points[i - 1][0];
+				fromY = points[i - 1][1];
 			}
 			context.beginPath();
 			context.moveTo(fromX, fromY);
-			context.lineTo(points[i][1], points[i][2]);
-			red = (grapher.redMask & points[i][3]) * 255;
-			green = (grapher.greenMask & points[i][3]) * 255;
-			blue = (grapher.blueMask & points[i][3]) * 255;
+			context.lineTo(points[i][0], points[i][1]);
+			red = (grapher.redMask & points[i][2]) * 255;
+			green = (grapher.greenMask & points[i][2]) * 255;
+			blue = (grapher.blueMask & points[i][2]) * 255;
 			context.strokeStyle = 'rgb(' + red + ','  + green + ','  + blue + ')';
-			//context.strokeStyle = 'rgb(255, 0 , 0)';
 			context.stroke();
 		}
 	};
@@ -241,18 +240,18 @@ $(document).ready(function () {
 			context.beginPath();
 			context.moveTo(i, yPosFrom);
 			context.lineTo(i, yPosTo);
-			red = (grapher.redMask & points[pointPos][3]) * 255;
-			green = (grapher.greenMask & points[pointPos][3]) * 255;
-			blue = (grapher.blueMask & points[pointPos][3]) * 255;
+			red = (grapher.redMask & points[pointPos][2]) * 255;
+			green = (grapher.greenMask & points[pointPos][2]) * 255;
+			blue = (grapher.blueMask & points[pointPos][2]) * 255;
 			context.strokeStyle = 'rgb(' + red + ','  + green + ','  + blue + ')';
 
 			context.stroke();
 			context.beginPath();
 			context.moveTo(i, xPosFrom);
 			context.lineTo(i, xPosTo);
-			red = (grapher.redMask & points[pointPos][3]) * 255;
-			green = (grapher.greenMask & points[pointPos][3]) * 255;
-			blue = (grapher.blueMask & points[pointPos][3]) * 255;
+			red = (grapher.redMask & points[pointPos][2]) * 255;
+			green = (grapher.greenMask & points[pointPos][2]) * 255;
+			blue = (grapher.blueMask & points[pointPos][2]) * 255;
 			context.strokeStyle = 'rgb(' + red + ','  + green + ','  + blue + ')';
 			context.stroke();
 
@@ -262,7 +261,7 @@ $(document).ready(function () {
 	grapher.updateStats = function() {
 		var freq = 31372 / grapher.soundWave.length;
 		pointPattern.$toneFrequency.text( freq );
-	}
+	};
 
 
 	grapher.clear = function() {
@@ -270,16 +269,25 @@ $(document).ready(function () {
 		grapher.contextWaves.clearRect(0, 0, grapher.widthWaves, grapher.heightWaves );
 	};
 
+	grapher.toBytesInt16 = function(num) {
+		return [(num & 0x0000ff00) >> 8, (num & 0x000000ff)];
+	};
+
 	grapher.writePoints = function() {
 		var text = '';
+		var dataLength = grapher.toBytesInt16(grapher.points.length * 3);
+		text += '[0,0,1,' + dataLength[0] + ','  + dataLength[1] + ']';
 		for (var i = 0; i < grapher.pointsPerFrame; i++) {
-			text += '[' + grapher.points[i][0] + ',' + grapher.points[i][1] + ',' + grapher.points[i][2] +  ',' + grapher.points[i][3] + ']';
+			text += '[' + grapher.points[i][0] + ',' + grapher.points[i][1] + ',' + grapher.points[i][2] + ']';
 		}
 		pointPattern.$pointsText.text( text );
 	};
 
 	grapher.writeTone = function() {
-		var text = '[' + grapher.soundWave[0];
+		var text = '';
+		var dataLength = grapher.toBytesInt16(grapher.soundWave.length);
+		text += '[0,0,2,' + dataLength[0] + ','  + dataLength[1] + ']';
+		text += '[' + grapher.soundWave[0];
 		for (var i = 1; i < grapher.soundWave.length; i++) {
 			text += ',' + grapher.soundWave[i];
 		}
