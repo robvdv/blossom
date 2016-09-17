@@ -10,7 +10,7 @@ import math
 import pickle
 import serial
 import struct
-#import comms
+import comms
 
 from flask import Flask, render_template, session, request, send_from_directory
 from flask_socketio import SocketIO, emit, join_room, leave_room, \
@@ -34,7 +34,11 @@ print('Starting Blossom...')
 def background_thread():
     while True:
         time.sleep(1)
-        comms.getMessages()
+        messages = comms.getMessages()
+        print('looking for message')
+        if messages:
+            print('Got message')
+            emit('message')
 
 @app.route('/')
 def index():
@@ -49,19 +53,21 @@ def send_css(path):
     return send_from_directory('css', path)
 
 @socketio.on('points', namespace='/test')
-def test_message(message):
+def socket_points(message):
     global pointsData
     global lastMessageSentTime
     pointsData = message['data']
     timeDiff = datetime.datetime.now() - lastMessageSentTime
     if timeDiff.microseconds >= 20000:
         print('data.length: ' + str(len(pointsData)))
-        #print('sending data: ' + str(pointsData) + "\n")
         lastMessageSentTime = datetime.datetime.now()
         comms.sendFrame(pointsData)
         comms.getMessages()
 
-
+@socketio.on('getMessages', namespace='/test')
+def socket_getMessages():
+    messages = comms.getMessages()
+    emit('message', messages)
 
 
 @socketio.on('my ping', namespace='/test')

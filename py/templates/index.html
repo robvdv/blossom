@@ -22,199 +22,226 @@
 <body>
 
 <div class="container">
-  <h1>Blossom</h1>
+<h1>Blossom</h1>
 
-  <div class="row">
-    <div class="col-sm-3">
-      Async mode
+<div class="row">
+  <div class="col-sm-3">
+    System On/Off
+  </div>
+  <div class="col-sm-3">
+    <input id="arduino-on-off" type="checkbox" value="">
+  </div>
+  <div class="col-sm-3">
+
+  </div>
+  <div class="col-sm-3">
+
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-3">
+    Async mode
+  </div>
+  <div class="col-sm-3">
+    {{ async_mode }}
+  </div>
+  <div class="col-sm-3">
+    ping/pong latency (ms)
+  </div>
+  <div class="col-sm-3">
+    <span id="ping-pong"></span>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-3">
+    Tone frequency
+  </div>
+  <div class="col-sm-3">
+    <span id="tone-frequency"></span>
+  </div>
+  <div class="col-sm-3">
+
+  </div>
+  <div class="col-sm-3">
+
+  </div>
+</div>
+
+
+<div class="container">
+<div class="row">
+  <div class="col-sm-9">
+
+    <div class="row">
+      <div class="col-sm-4">
+        Tone
+      </div>
+      <div class="col-sm-1">
+        <span class="slider-val"></span>
+      </div>
+      <div class="col-sm-7">
+        <input class="slider" id="tone" data-event="tone" type="text" data-slider-min="0" data-slider-max="1024"
+               data-slider-step="1"
+               data-slider-value="50"/>
+      </div>
     </div>
-    <div class="col-sm-3">
-      {{ async_mode }}
+
+    <div class="row">
+      <div class="col-sm-4">
+        Tone Frequency/Frame Ratio
+      </div>
+      <div class="col-sm-1">
+        <span class="slider-val"></span>
+      </div>
+      <div class="col-sm-7">
+        <input class="slider" id="tone-frequency-ratio" data-event="tone frequency ratio" type="text" data-slider-min="0" data-slider-max="100"
+               data-slider-step="1"
+               data-slider-value="4"/>
+      </div>
     </div>
-    <div class="col-sm-3">
-      ping/pong latency (ms)
+
+    <div class="row">
+      <div class="col-sm-4">
+        Tone Frequency Point Offset
+      </div>
+      <div class="col-sm-1">
+        <span class="slider-val"></span>
+      </div>
+      <div class="col-sm-7">
+        <input class="slider" id="tone-frequency-point-offset" data-event="tone frequency ratio" type="text" data-slider-min="0" data-slider-max="100"
+               data-slider-step="1"
+               data-slider-value="4"/>
+      </div>
     </div>
-    <div class="col-sm-3">
-      <span id="ping-pong"></span>
+
+    <div class="row">
+      <div class="col-sm-4">
+        Tone Amplitude
+      </div>
+      <div class="col-sm-1">
+        <span class="slider-val"></span>
+      </div>
+      <div class="col-sm-7">
+        <input class="slider" id="tone-amplitude" data-event="tone" type="text" data-slider-min="0" data-slider-max="100"
+               data-slider-step="1"
+               data-slider-value="25"/>
+      </div>
     </div>
+
+    <div class="row">
+      <div class="col-sm-4">
+        Points in frame
+      </div>
+      <div class="col-sm-1">
+        <span class="slider-val"></span>
+      </div>
+      <div class="col-sm-7">
+        <input class="slider" id="points-per-frame" data-event="points per frame" type="text" data-slider-min="2" data-slider-max="180"
+               data-slider-step="1"
+               data-slider-value="120"/>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-4">
+        Circle Size
+      </div>
+      <div class="col-sm-1">
+        <span class="slider-val"></span>
+
+      </div>
+      <div class="col-sm-7">
+        <input class="slider" id="circle-size" data-event="circle size" type="text" data-slider-min="0"
+               data-slider-max="100" data-slider-step="1"
+               data-slider-value="100"/>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-4">
+        Circle Ratio
+      </div>
+      <div class="col-sm-1">
+        <span class="slider-val"></span>
+
+      </div>
+      <div class="col-sm-7">
+        <input class="slider" id="circle-ratio" data-event="circle ratio" type="text" data-slider-min="0"
+               data-slider-max="100"
+               data-slider-step="1" data-slider-value="50"/>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-4">
+        Small circle phase
+      </div>
+      <div class="col-sm-1">
+        <span class="slider-val"></span>
+
+      </div>
+      <div class="col-sm-7">
+        <input class="slider" id="circle-size-small" data-event="circle size small" type="text"
+               data-slider-min="1" data-slider-max="10"
+               data-slider-step="1" data-slider-value="6"/>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-4">
+        Red Phase
+      </div>
+      <div class="col-sm-1">
+        <span class="slider-val"></span>
+
+      </div>
+      <div class="col-sm-7">
+        <input class="slider" id="phase-red" data-event="phase red" type="text" data-slider-min="0"
+               data-slider-max="100"
+               data-slider-step="1" data-slider-value="[66, 100]"/>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-4">
+        Green Phase
+      </div>
+      <div class="col-sm-1">
+        <span class="slider-val"></span>
+
+      </div>
+      <div class="col-sm-7">
+        <input class="slider" id="phase-green" data-event="phase red" type="text" data-slider-min="0"
+               data-slider-max="100"
+               data-slider-step="1" data-slider-value="[33,66]"/>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-4">
+        Blue Phase
+      </div>
+      <div class="col-sm-1">
+        <span class="slider-val"></span>
+
+      </div>
+      <div class="col-sm-7">
+        <input class="slider" id="phase-blue" data-event="phase blue" type="text" data-slider-min="0"
+               data-slider-max="100"
+               data-slider-step="1" data-slider-value="[0,33]"/>
+      </div>
+    </div>
+
   </div>
 
-  <div class="row">
-    <div class="col-sm-3">
-      Tone frequency
-    </div>
-    <div class="col-sm-3">
-      <span id="tone-frequency"></span>
-    </div>
-    <div class="col-sm-3">
-
-    </div>
-    <div class="col-sm-3">
-
-    </div>
+  <div class="col-sm-3">
+    <textarea id="messages"></textarea>
   </div>
+</div>
 
-
-
-  <div class="row">
-    <div class="col-sm-4">
-      Tone
-    </div>
-    <div class="col-sm-1">
-      <span class="slider-val"></span>
-    </div>
-    <div class="col-sm-7">
-      <input class="slider" id="tone" data-event="tone" type="text" data-slider-min="0" data-slider-max="1024"
-             data-slider-step="1"
-             data-slider-value="50"/>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-sm-4">
-      Tone Frequency/Frame Ratio
-    </div>
-    <div class="col-sm-1">
-      <span class="slider-val"></span>
-    </div>
-    <div class="col-sm-7">
-      <input class="slider" id="tone-frequency-ratio" data-event="tone frequency ratio" type="text" data-slider-min="0" data-slider-max="100"
-             data-slider-step="1"
-             data-slider-value="4"/>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-sm-4">
-      Tone Frequency Point Offset
-    </div>
-    <div class="col-sm-1">
-      <span class="slider-val"></span>
-    </div>
-    <div class="col-sm-7">
-      <input class="slider" id="tone-frequency-point-offset" data-event="tone frequency ratio" type="text" data-slider-min="0" data-slider-max="100"
-             data-slider-step="1"
-             data-slider-value="4"/>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-sm-4">
-      Tone Amplitude
-    </div>
-    <div class="col-sm-1">
-      <span class="slider-val"></span>
-    </div>
-    <div class="col-sm-7">
-      <input class="slider" id="tone-amplitude" data-event="tone" type="text" data-slider-min="0" data-slider-max="100"
-             data-slider-step="1"
-             data-slider-value="25"/>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-sm-4">
-      Points in frame
-    </div>
-    <div class="col-sm-1">
-      <span class="slider-val"></span>
-    </div>
-    <div class="col-sm-7">
-      <input class="slider" id="points-per-frame" data-event="points per frame" type="text" data-slider-min="2" data-slider-max="360"
-             data-slider-step="1"
-             data-slider-value="120"/>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-sm-4">
-      Circle Size
-    </div>
-    <div class="col-sm-1">
-      <span class="slider-val"></span>
-
-    </div>
-    <div class="col-sm-7">
-      <input class="slider" id="circle-size" data-event="circle size" type="text" data-slider-min="0"
-             data-slider-max="100" data-slider-step="1"
-             data-slider-value="100"/>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-sm-4">
-      Circle Ratio
-    </div>
-    <div class="col-sm-1">
-      <span class="slider-val"></span>
-
-    </div>
-    <div class="col-sm-7">
-      <input class="slider" id="circle-ratio" data-event="circle ratio" type="text" data-slider-min="0"
-             data-slider-max="100"
-             data-slider-step="1" data-slider-value="50"/>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-sm-4">
-      Small circle phase
-    </div>
-    <div class="col-sm-1">
-      <span class="slider-val"></span>
-
-    </div>
-    <div class="col-sm-7">
-      <input class="slider" id="circle-size-small" data-event="circle size small" type="text"
-             data-slider-min="1" data-slider-max="10"
-             data-slider-step="1" data-slider-value="6"/>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-sm-4">
-      Red Phase
-    </div>
-    <div class="col-sm-1">
-      <span class="slider-val"></span>
-
-    </div>
-    <div class="col-sm-7">
-      <input class="slider" id="phase-red" data-event="phase red" type="text" data-slider-min="0"
-             data-slider-max="100"
-             data-slider-step="1" data-slider-value="[66, 100]"/>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-sm-4">
-      Green Phase
-    </div>
-    <div class="col-sm-1">
-      <span class="slider-val"></span>
-
-    </div>
-    <div class="col-sm-7">
-      <input class="slider" id="phase-green" data-event="phase red" type="text" data-slider-min="0"
-             data-slider-max="100"
-             data-slider-step="1" data-slider-value="[33,66]"/>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-sm-4">
-      Blue Phase
-    </div>
-    <div class="col-sm-1">
-      <span class="slider-val"></span>
-
-    </div>
-    <div class="col-sm-7">
-      <input class="slider" id="phase-blue" data-event="phase blue" type="text" data-slider-min="0"
-             data-slider-max="100"
-             data-slider-step="1" data-slider-value="[0,33]"/>
-    </div>
-  </div>
+<div class="container">
 
   <div class="row">
     <div class="col-sm-3">
@@ -237,6 +264,8 @@
     </div>
   </div>
 
+</div>
+</div>
 </div>
 
 

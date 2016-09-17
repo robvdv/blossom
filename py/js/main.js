@@ -38,6 +38,10 @@ $(document).ready(function () {
 		socket.emit('my ping');
 	}, 1000);
 
+	window.setInterval(function () {
+		socket.emit('getMessages');
+	}, 1000);
+
 	// Handler for the "pong" message. When the pong is received, the
 	// time from the ping is stored, and the average of the last 30
 	// samples is average and displayed.
@@ -55,17 +59,43 @@ $(document).ready(function () {
 
 	comms.lastSentMs = 0;
 	comms.sendThrottleMs = 20;
+	comms.sendFrameData = false;
 
 	comms.sendPoints = function() {
 		if ((new Date().getTime()) < (comms.lastSentMs + comms.sendThrottleMs)) {
 			return;
 		}
 		comms.lastSentMs = new Date().getTime();
-		socket.emit('points', {data: grapher.points.splice(0, grapher.pointsPerFrame + 1) });
+
+		var data = [[0, 0, 2, 0, grapher.points.length]];
+		socket.emit('points', {data: data });
 	};
 
-	socket.on('points received', function (msg) {
-		$('#log').append('<br>' + $('<div/>').text('Received #' + msg.count + ': ' + msg.data).html());
+	// test!
+	comms.sendWave = function() {
+		if ((new Date().getTime()) < (comms.lastSentMs + comms.sendThrottleMs)) {
+			return;
+		}
+		comms.lastSentMs = new Date().getTime();
+		var data = [[0, 0, 2, 4, grapher.wave.length]];
+		socket.emit('points', {data: data });
+	};
+
+	comms.arduinoOnOff = function(turnOn) {
+		if ((new Date().getTime()) < (comms.lastSentMs + comms.sendThrottleMs)) {
+			return;
+		}
+		comms.lastSentMs = new Date().getTime();
+		comms.sendFrameData = turnOn ? 1 : 0;
+		var message = [0, 0, 1, 0];
+		message.push( comms.sendFrameData );
+		socket.emit('points', {data: [message] }); // rename points to frame or something
+	};
+
+	socket.on('message', function (msg) {
+		if (msg) {
+			$('#messages').prepend(msg+ '\n');
+		}
 	});
 
 
@@ -263,30 +293,27 @@ $(document).ready(function () {
 		pointPattern.$toneFrequency.text( freq );
 	};
 
-
 	grapher.clear = function() {
 		grapher.contextPoints.clearRect(0, 0, grapher.widthPoints, grapher.heightPoints );
 		grapher.contextWaves.clearRect(0, 0, grapher.widthWaves, grapher.heightWaves );
 	};
 
+	// unused
 	grapher.toBytesInt16 = function(num) {
 		return [(num & 0x0000ff00) >> 8, (num & 0x000000ff)];
 	};
 
+	grapher.createPoints = function() {
+		var arr = [[0,0,2,0,grapher.points.length]];
+		return arr.concat(grapher.points);
+	};
 	grapher.writePoints = function() {
-		var text = '';
-		var dataLength = grapher.toBytesInt16(grapher.points.length * 3);
-		text += '[0,0,1,' + dataLength[0] + ','  + dataLength[1] + ']';
-		for (var i = 0; i < grapher.pointsPerFrame; i++) {
-			text += '[' + grapher.points[i][0] + ',' + grapher.points[i][1] + ',' + grapher.points[i][2] + ']';
-		}
-		pointPattern.$pointsText.text( text );
+		pointPattern.$pointsText.text( JSON.stringify(grapher.createPoints()) );
 	};
 
 	grapher.writeTone = function() {
 		var text = '';
-		var dataLength = grapher.toBytesInt16(grapher.soundWave.length);
-		text += '[0,0,2,' + dataLength[0] + ','  + dataLength[1] + ']';
+		text += '[0,0,3,xxx,'  + grapher.soundWave.length + ']';
 		text += '[' + grapher.soundWave[0];
 		for (var i = 1; i < grapher.soundWave.length; i++) {
 			text += ',' + grapher.soundWave[i];
@@ -321,7 +348,9 @@ $(document).ready(function () {
 		grapher.writePoints();
 		grapher.writeTone();
 		grapher.updateStats();
-		comms.sendPoints();
+		if (comms.sendFrameData) {
+			comms.sendPoints();
+		}
 	}
 
 	var changeSlider = function (slider) {
@@ -353,6 +382,14 @@ $(document).ready(function () {
 	$('input.slider').each(function () {
 		$(this).trigger('slide');
 	});
+
+	var controls = blossom.controls = {};
+
+	controls.$arduinoOnOff = $('#arduino-on-off');
+	controls.$arduinoOnOff.on('change', function() {
+		comms.arduinoOnOff( controls.$arduinoOnOff.is(':checked') );
+	});
+
 
 
 });

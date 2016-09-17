@@ -19,3 +19,7 @@
   height: 255px;
   background-color: darkslategrey;
 }
+#messages {
+  width: 100%;
+  height: 200px;
+}

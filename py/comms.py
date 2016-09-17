@@ -48,10 +48,10 @@ def sendFrame(pointsData):
 
     ser.write(frames)
 
-
 def getMessages():
     inp = ser.read(ser.inWaiting())
     if inp:
-        print(inp)
+        print("got message: " + inp)
+        return inp
 
 
