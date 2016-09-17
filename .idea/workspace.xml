@@ -2,17 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="699ef628-7930-4ebc-8d66-f79758af42d6" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/arduino/ardread2/laser4pinCommOptimised.ino" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/py/blossom.py" afterPath="$PROJECT_DIR$/py/blossom.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/py/comms.py" afterPath="$PROJECT_DIR$/py/comms.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/py/templates/index.html" afterPath="$PROJECT_DIR$/py/templates/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/py/css/main.css" afterPath="$PROJECT_DIR$/py/css/main.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/arduino/ardread2/laser4pinCommOptimised.ino" afterPath="$PROJECT_DIR$/arduino/ardread2/laser4pinCommOptimised.ino" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/py/js/main.js" afterPath="$PROJECT_DIR$/py/js/main.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="src.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1473999139284" ignored="false" />
+    <file path="/Dummy.txt" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1474119860161" ignored="false" />
     <file path="/blossom.py" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1474091370648" ignored="false" />
     <file path="/flaskthread.py" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1471693703224" ignored="false" />
     <file path="/comtest.py" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1471693740904" ignored="false" />
@@ -22,7 +18,7 @@
     <file path="$PROJECT_DIR$/../../../tal/tal_mobi/dev/js/app/config.js" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1473172873601" ignored="false" />
     <file path="$PROJECT_DIR$/../../../tal/tal_mobi/dev/templates/content.haxdebug.html" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1473232333386" ignored="false" />
     <file path="$PROJECT_DIR$/../../../tal/tal_mobi/dev/js/main.js" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1473172865003" ignored="false" />
-    <file path="/main.js" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1474117430529" ignored="false" />
+    <file path="/main.js" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1474123383561" ignored="false" />
     <file path="/a.dummy" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1474115152926" ignored="false" />
     <file path="$PROJECT_DIR$/../../../tal/tal_mobi/dev/index.html" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1473172865003" ignored="false" />
     <file path="$PROJECT_DIR$/../../../tal/tal_mobi/dev/js/app/talAnalytics.js" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1473172873601" ignored="false" />
@@ -48,7 +44,7 @@
     <file path="$PROJECT_DIR$/../../../tal/tal_mobi/dev/js/app/screens/profileScreen.js" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1473172873601" ignored="false" />
     <file path="$PROJECT_DIR$/../../../tal/tal_mobi/dev/js/app/models/Offers.js" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1473172873601" ignored="false" />
     <file path="/main.css" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1474090651653" ignored="false" />
-    <file path="/laser4pinCommOptimised.ino" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1474099232724" ignored="false" />
+    <file path="/laser4pinCommOptimised.ino" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1474119896313" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,7 +117,7 @@
       <file leaf-file-name="laser4pinCommOptimised.ino" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/arduino/ardread2/laser4pinCommOptimised.ino">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="34" selection-start="801" selection-end="801" vertical-scroll-proportion="0.375895">
+            <state line="238" column="0" selection-start="8054" selection-end="8054" vertical-scroll-proportion="0.9642005">
               <folding />
             </state>
           </provider>
@@ -179,7 +175,7 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/py/templates/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="112" column="61" selection-start="2812" selection-end="2812" vertical-scroll-proportion="-2.4693878">
+            <state line="116" column="77" selection-start="3000" selection-end="3000" vertical-scroll-proportion="-3.6938775">
               <folding />
             </state>
           </provider>
@@ -197,7 +193,7 @@
       <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/py/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="82" column="56" selection-start="2750" selection-end="2750" vertical-scroll-proportion="15.5">
+            <state line="82" column="87" selection-start="2827" selection-end="2827" vertical-scroll-proportion="61.2">
               <folding />
             </state>
           </provider>
@@ -232,10 +228,10 @@
         <option value="$PROJECT_DIR$/py/templates/js/main.js" />
         <option value="$PROJECT_DIR$/py/css/main.css" />
         <option value="$PROJECT_DIR$/py/comms.py" />
-        <option value="$PROJECT_DIR$/arduino/ardread2/laser4pinCommOptimised.ino" />
         <option value="$PROJECT_DIR$/py/blossom.py" />
         <option value="$PROJECT_DIR$/py/templates/index.html" />
         <option value="$PROJECT_DIR$/py/js/main.js" />
+        <option value="$PROJECT_DIR$/arduino/ardread2/laser4pinCommOptimised.ino" />
       </list>
     </option>
   </component>
@@ -621,7 +617,11 @@
       <created>1473999140451</created>
       <updated>1473999140451</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Length and type driven comms take 2&#10;">
+      <created>1474119863349</created>
+      <updated>1474119863349</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -695,7 +695,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Length and type driven comms" />
+    <option name="LAST_COMMIT_MESSAGE" value="Length and type driven comms take 2&#10;" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -715,6 +715,7 @@
     <MESSAGE value="Added sound wave generation and rendering" />
     <MESSAGE value="Working pre-comms optimisation" />
     <MESSAGE value="Length and type driven comms" />
+    <MESSAGE value="Length and type driven comms take 2&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -821,13 +822,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/py/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="112" column="61" selection-start="2812" selection-end="2812" vertical-scroll-proportion="-2.4693878">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/py/blossom.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="39" column="82" selection-start="982" selection-end="982" vertical-scroll-proportion="-3.0">
@@ -846,16 +840,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/py/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="116" column="77" selection-start="3000" selection-end="3000" vertical-scroll-proportion="-3.6938775">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/py/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="82" column="56" selection-start="2750" selection-end="2750" vertical-scroll-proportion="15.5">
+        <state line="82" column="87" selection-start="2827" selection-end="2827" vertical-scroll-proportion="61.2">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/arduino/ardread2/laser4pinCommOptimised.ino">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="34" selection-start="801" selection-end="801" vertical-scroll-proportion="0.375895">
+        <state line="238" column="0" selection-start="8054" selection-end="8054" vertical-scroll-proportion="0.9642005">
           <folding />
         </state>
       </provider>

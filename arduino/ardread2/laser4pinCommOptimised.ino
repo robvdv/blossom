@@ -4,6 +4,7 @@
 */
 
 #define LEDPIN 13
+#define CLEAR_EAT_JUNK_THRESHHOLD 2
 #define cbi(sfr, bit) (_SFR_BYTE(sfr) &= ~_BV(bit))
 #define sbi(sfr, bit) (_SFR_BYTE(sfr) |= _BV(bit))
 
@@ -13,20 +14,21 @@ unsigned int frequency;
 byte frame[2];
 byte zeroCounter = 0; // how many zeros in a row have we read?
 byte readToArrayPointer = 0; // read to what structure? point 1 or wave 2.
-byte readBuffer[20];  // holds a buffer of recently read bytes
-byte readBufferPointer = 0; // points to the current position in the read buffer
 int numberOfBytesRead = 0; // the number of bytes read in this read cycle
 int numberOfBytesToRead = 0; // the number of bytes we expect in this frame
-byte point[360][3];
-byte wave[360];
+byte point[180][3];
+byte wave[180];
+byte waveRepeatSignal = 0;
 byte pointReadIndex = 0;
 int i;
 String message;
 int framePointIndex = 0;
 int frameCount = 0;
 int framesReceived = 0;
-byte readBytePrev = 0;
-byte readByte = 0;
+byte readBytePrev = 255;
+byte readByte = 255;
+boolean eatJunkMode = true; // swallow all input until we receive two consecutive zeros
+byte clearJunkBytesEaten = 0;
 boolean systemOn = false; // turn on speakers and lasers
 long pointCount = 0;
 int commCount = 0;
@@ -66,6 +68,7 @@ void setup() {
   cbi (TIMSK0,TOIE0);              // disable Timer0 !!! delay() is now not available
   sbi (TIMSK2,TOIE2);              // enable Timer2 Interrupt
 
+  sendMessage("helloBlossom", "Arduino is on");
 }
 
 // accepts a two dimensional array containing key/value pairs
@@ -79,62 +82,109 @@ void sendMessage(String key, String value) {
   Serial.print(message);
 }
 
+void setJunkModeOn(String message) {
+  eatJunkMode = true;
+  clearJunkBytesEaten = 0;
+  readBytePrev = 255;
+  sendMessage("eatJunkOn", message);
+}
+
+void setJunkModeOff() {
+  eatJunkMode = false;
+  sendMessage("eatJunk", "cleared");
+}
+
 void loop() {
-  if (Serial.available() >=5) {
-      // we haven't yet set up where we're trying to read to
-      if (readToArrayPointer == 0) {
-        readByte = Serial.read(); // read a byte 
-        if (readByte == 0) { // if we read a zero then keep reading
-            readToArrayPointer = 0;
-            zeroCounter++;
-        } else if (readByte == 1) { // control message
+  // if there's nothing to read, don't do anything
+  if (Serial.available() >= (CLEAR_EAT_JUNK_THRESHHOLD + 3)) {
+    // clear up any comms mess by eating all bytes until we get two consecutive zeros
+    if (eatJunkMode) {
+      readByte = Serial.read(); 
+      sendMessage("got junk", String(readByte));
+      if (readByte == 0) {
+        clearJunkBytesEaten++;
+      }
+
+      if (clearJunkBytesEaten >= CLEAR_EAT_JUNK_THRESHHOLD) {
+        setJunkModeOff();
+      }
+    } else {
+      // do we have a target for our read or are we still waiting for a control?
+      if ((Serial.available() >= 2) && (readToArrayPointer == 0)) {
+        readByte = Serial.read(); // get the control byte after reading zeros
+        sendMessage("checking control", String(readByte));
+        if (readByte == 1) { // control message
             readToArrayPointer = 0;
             zeroCounter = 0;
-            readBytePrev = Serial.read();
+            readBytePrev = Serial.read(); // unused 
             readByte = Serial.read();
+            sendMessage("system state", String(readByte));
             if (readByte == 1) {
-                systemOn = true;
-                digitalWrite(13, HIGH);  
-                sendMessage("systemOn", "true");
+              systemOn = true;
+              digitalWrite(13, HIGH);  
+              setJunkModeOn("Set system ON, awaiting next command");
+              sendMessage("systemOn", "true");
             } else if (readByte == 0) {
-                systemOn = false;
-                digitalWrite(13, LOW);  
-                sendMessage("systemOn", "false");
+              systemOn = false;
+              digitalWrite(13, LOW);  
+              setJunkModeOn("Set system OFF, awaiting next command");
+              sendMessage("systemOn", "false");
+            } else {
+              // we got an unexpected value so something went wrong. Time to eat junk.
+              setJunkModeOn("Unknown comms state: " + String(readByte));
             }
-        } else if ((readByte == 1) || (readByte == 2)) { // read to point or tone
+        } else if ((readByte == 2) || (readByte == 3)) { // read to point or tone
             readToArrayPointer = readByte;
+            sendMessage("readToArrayPointer", String(readToArrayPointer));
             zeroCounter = 0;
-            readBytePrev = Serial.read();
             readByte = Serial.read();
-            numberOfBytesToRead = (readBytePrev * 256) + readByte;
+            if (readToArrayPointer == 2) {
+              // there are three bytes for each point, so multiply by three
+              numberOfBytesToRead = Serial.read() * 3;
+            } else if (readToArrayPointer == 3) {
+              waveRepeatSignal = readByte; 
+              numberOfBytesToRead = Serial.read();
+            } else {
+              setJunkModeOn("Unknown point or wave reference");
+            }
+            sendMessage("frameReadInstruction", String(numberOfBytesToRead) + " bytes long");
             framePointIndex = 0;
             pointReadIndex = 0;
+        } else {
+          setJunkModeOn("Unknown control byte: " + String(readByte));
         }
-      } else {
+      }
+
+      // there's something to read and we know where it should go and we're not eating junk
+      if ((Serial.available() >= 5) && (readToArrayPointer != 0) && !eatJunkMode) {
         while (Serial.available() && (numberOfBytesRead < numberOfBytesToRead)) {
           readByte = Serial.read(); // read a byte 
-          if (readToArrayPointer == 1) {
+          if (readToArrayPointer == 2) {
             point[framePointIndex][pointReadIndex] = readByte;
             pointReadIndex++;
             if (pointReadIndex >= 2) {
               pointReadIndex = 0;
               framePointIndex++;
             }
-          } else if (readToArrayPointer == 2) {
+          } else if (readToArrayPointer == 3) {
             wave[numberOfBytesRead] = readByte;
           }
           numberOfBytesRead++;
         }
+
+        // are we done reading the specified number of bytes?
         if (numberOfBytesRead == numberOfBytesToRead) {
-          if (readToArrayPointer == 1) {
+          if (readToArrayPointer == 2) {
             sendMessage("readFrame", "Read point frame " +  String(numberOfBytesRead / 3) + " points long");
-          } else {
+          } else if (readToArrayPointer == 3) {
             sendMessage("readFrame", "Read wave frame " +  String(numberOfBytesRead) + " bytes long");
           }
           readToArrayPointer = 0;
         }
       }
-  }
+      
+    }
+  }   
 }
 
 //******************************************************************

@@ -66,9 +66,9 @@ $(document).ready(function () {
 			return;
 		}
 		comms.lastSentMs = new Date().getTime();
-
-		var data = [[0, 0, 2, 0, grapher.points.length]];
+		var data = grapher.createPoints();
 		socket.emit('points', {data: data });
+		console.log(JSON.stringify({data: [data] }))
 	};
 
 	// test!
@@ -79,6 +79,7 @@ $(document).ready(function () {
 		comms.lastSentMs = new Date().getTime();
 		var data = [[0, 0, 2, 4, grapher.wave.length]];
 		socket.emit('points', {data: data });
+		console.log(JSON.stringify({data: [data] }))
 	};
 
 	comms.arduinoOnOff = function(turnOn) {
@@ -90,6 +91,7 @@ $(document).ready(function () {
 		var message = [0, 0, 1, 0];
 		message.push( comms.sendFrameData );
 		socket.emit('points', {data: [message] }); // rename points to frame or something
+		console.log(JSON.stringify({data: [message] }))
 	};
 
 	socket.on('message', function (msg) {
