@@ -96,15 +96,13 @@ void setJunkModeOff() {
 
 void loop() {
   // if there's nothing to read, don't do anything
-  if (Serial.available() >= (CLEAR_EAT_JUNK_THRESHHOLD)) {
+  if (Serial.available() >= (CLEAR_EAT_JUNK_THRESHHOLD + 3)) {
     // clear up any comms mess by eating all bytes until we get two consecutive zeros
     if (eatJunkMode) {
       readByte = Serial.read(); 
       sendMessage("got junk", String(readByte));
       if (readByte == 0) {
         clearJunkBytesEaten++;
-      } else {
-        clearJunkBytesEaten = 0;
       }
 
       if (clearJunkBytesEaten >= CLEAR_EAT_JUNK_THRESHHOLD) {
@@ -177,11 +175,10 @@ void loop() {
         // are we done reading the specified number of bytes?
         if (numberOfBytesRead == numberOfBytesToRead) {
           if (readToArrayPointer == 2) {
-            sendMessage("readFrame", "Read point frame " +  String(numberOfBytesRead) + " bytes long");
+            sendMessage("readFrame", "Read point frame " +  String(numberOfBytesRead / 3) + " points long");
           } else if (readToArrayPointer == 3) {
             sendMessage("readFrame", "Read wave frame " +  String(numberOfBytesRead) + " bytes long");
           }
-          setJunkModeOn("Awaiting next command");
           readToArrayPointer = 0;
         }
       }

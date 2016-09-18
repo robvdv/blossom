@@ -2,13 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="699ef628-7930-4ebc-8d66-f79758af42d6" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/arduino/ardread2/laser4pinCommOptimised2.ino" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/arduino/ardread2/laser4pinCommOptimised.ino" afterPath="$PROJECT_DIR$/arduino/ardread2/laser4pinCommOptimised.ino" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/py/js/main.js" afterPath="$PROJECT_DIR$/py/js/main.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="src.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1474119860161" ignored="false" />
+    <file path="/Dummy.txt" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1474124508330" ignored="false" />
     <file path="/blossom.py" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1474091370648" ignored="false" />
     <file path="/flaskthread.py" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1471693703224" ignored="false" />
     <file path="/comtest.py" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1471693740904" ignored="false" />
@@ -117,7 +117,16 @@
       <file leaf-file-name="laser4pinCommOptimised.ino" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/arduino/ardread2/laser4pinCommOptimised.ino">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="238" column="0" selection-start="8054" selection-end="8054" vertical-scroll-proportion="0.9642005">
+            <state line="241" column="0" selection-start="8143" selection-end="8143" vertical-scroll-proportion="0.9642005">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="laser4pinCommOptimised2.ino" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/arduino/ardread2/laser4pinCommOptimised2.ino">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="11" column="69" selection-start="304" selection-end="304" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -159,15 +168,6 @@
               <folding>
                 <element signature="e#22#35#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dds_signal_original.ino" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/arduino/ardread2/dds_signal_original.ino">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="98" column="66" selection-start="3827" selection-end="3827" vertical-scroll-proportion="0.0">
-              <folding />
             </state>
           </provider>
         </entry>
@@ -621,7 +621,11 @@
       <created>1474119863349</created>
       <updated>1474119863349</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Trying to get junk eating right">
+      <created>1474124509704</created>
+      <updated>1474124509704</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -695,7 +699,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Length and type driven comms take 2&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Trying to get junk eating right" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -716,6 +720,7 @@
     <MESSAGE value="Working pre-comms optimisation" />
     <MESSAGE value="Length and type driven comms" />
     <MESSAGE value="Length and type driven comms take 2&#10;" />
+    <MESSAGE value="Trying to get junk eating right" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -743,13 +748,6 @@
     </PATH>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/py/comtest.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="55" selection-start="87" selection-end="87" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/py/pyserial2.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="58" column="56" selection-start="1269" selection-end="1269" vertical-scroll-proportion="0.0">
@@ -854,9 +852,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/arduino/ardread2/laser4pinCommOptimised2.ino">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="69" selection-start="304" selection-end="304" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/arduino/ardread2/laser4pinCommOptimised.ino">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="238" column="0" selection-start="8054" selection-end="8054" vertical-scroll-proportion="0.9642005">
+        <state line="241" column="0" selection-start="8143" selection-end="8143" vertical-scroll-proportion="0.9642005">
           <folding />
         </state>
       </provider>
