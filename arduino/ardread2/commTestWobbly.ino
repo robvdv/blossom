@@ -11,7 +11,6 @@ byte dataLength = 0;
 byte dataId = 0;
 byte data[255]; // receive data buffer
 byte dataPosition = 0;
-String message = "Hello Blossom";
 long dataCount = 0;
 
 void setup() {
@@ -24,6 +23,17 @@ void setup() {
   digitalWrite(LEDPIN, LOW);
 }
 
+void sendAck(String message) {
+  Serial.print(command); 
+  Serial.print(",");
+  Serial.print(dataLength);
+  Serial.print(",");
+  Serial.print(dataId);
+  Serial.print(",");
+  Serial.print(message);
+  command = 0;
+}
+
 void loop() {
   // if we have enough bytes to receive a control message and there's no command yet set
   if ((Serial.available() >= CONTROL_MESSAGE_SIZE) && (command == 0)) {
@@ -31,23 +41,15 @@ void loop() {
     dataLength = int(Serial.read()); 
     dataId = int(Serial.read()); 
     dataPosition = 0; // reset the data read position
-
     if (command == 1) {
       digitalWrite(LEDPIN, HIGH);
-      command == 0;
+      sendAck("Set LED ON");
     } else if (command == 2) {
       digitalWrite(LEDPIN, LOW);
-      command == 0;
-    } else if (command == 3) {
-      Serial.print(command); 
-      Serial.print(",");
-      Serial.print(dataPosition);
-      Serial.print(",");
-      Serial.print(dataId);
-      Serial.print(",tot:");
-      Serial.print(dataCount);
+      sendAck("Set LED OFF");
+    } else if (command == 3) {  // get status/poll
+      sendAck("tot:" + String(dataCount));
       dataCount = 0;
-      command = 0;
     }
   }
 
@@ -59,20 +61,11 @@ void loop() {
       dataPosition++;
     }
 
-    // have we read the full length of data? Send an ack
+    // have we read the full length of data? Clear the command
     if (dataPosition == dataLength) {
       dataCount += dataLength;
-      Serial.print(command); 
-      Serial.print(",");
-      Serial.print(dataPosition);
-      Serial.print(",");
-      Serial.print(dataId);
-      Serial.print(",");
-      Serial.print(message);
-      message = "";
-      command = 0;
+      sendAck("Got one");
     }
-    
   }
   
 }

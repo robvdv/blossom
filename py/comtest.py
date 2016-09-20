@@ -11,6 +11,7 @@ import pickle
 import serial
 import struct
 import comms2 as comms
+import time
 
 from flask import Flask, render_template, session, request, send_from_directory
 from flask_socketio import SocketIO, emit, join_room, leave_room, \
@@ -25,8 +26,8 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
 socketio = SocketIO(app, async_mode=async_mode)
 thread = None
-lastMessageSentTime = datetime.datetime.now()
-
+messageLastSentTime = time.time()
+bytesSent = 0
 print('Starting ComTest...')
 
 @app.route('/')
@@ -43,8 +44,20 @@ def send_css(path):
 
 @socketio.on('sendData', namespace='/test')
 def socket_points(message):
+    global messageLastSentTime
+    global bytesSent
     data = message['data']
-    comms.sendData(data)
+    message = comms.sendData(data)
+    if message:
+        emit('message', message)
+
+    #bytesSent = bytesSent + len(data)
+
+    #timeDiff = time.time() - messageLastSentTime
+    #if (timeDiff > 1):
+    #    emit('message', "Average throughput: " +str(bytesSent / timeDiff) )
+    #    messageLastSentTime = time.time()
+    #    bytesSent = 0
 
 @socketio.on('receiveData', namespace='/test')
 def socket_getMessages():

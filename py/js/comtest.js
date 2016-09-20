@@ -13,13 +13,29 @@ $(document).ready(function () {
 	//     http[s]://<domain>:<port>[/<namespace>]
 	var socket = io.connect('http://' + document.domain + ':' + location.port + namespace);
 
+	socket.on('message', function (data) {
+		comms.$log.val(data);
+	});
+
 	var comms = window.comms = {};
 	comms.$log = $('#log');
+	window.lastSentId = 0;
 
 	comms.sendData = function(data) {
-		socket.emit('sendData', {data: data });
-		comms.$log.prepend(data);
+		window.lastSentId++;
+		if (window.lastSentId > 255) {
+			window.lastSentId = 0;
+		}
+		var sendData = data.slice(0);
+		sendData.splice(2,0,window.lastSentId);
+		//console.log("sending: " + JSON.stringify(sendData));
+		socket.emit('sendData', {data: sendData });
 	};
+
+	comms.getStats = window.setInterval(function () {
+		comms.sendData([3,0]);
+	}, 1000);
+	//sending: [5,5,74,0,1,2,3,4]
 
 	$('#send-arbitrary-data').on('click', function() {
 		var data = [];
@@ -42,7 +58,7 @@ $(document).ready(function () {
 		var data = [];
 		var len = parseInt($dataLength.val());
 		var ms = parseInt($msdelay.val());
-		data.push(3);
+		data.push(5);
 		data.push(len);
 		for (var i = 0; i < len; i++) {
 			data.push(i);
