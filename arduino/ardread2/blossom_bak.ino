@@ -1,0 +1,100 @@
+/**
+* Reads commands coming from serial interface to drive an LED on/off
+* Also prints led status back
+*/
+
+#define LEDPIN 13
+#define CONTROL_MESSAGE_SIZE 4
+
+byte command = 0;
+byte subCommand = 0;
+int dataLength = 0;
+byte dataId = 0;
+byte point[120][3];
+byte pointPosition = 0;
+byte pointPositionData = 0;
+
+byte soundWave[120];
+byte soundWaveRepeatCycle = 1;
+
+int dataPosition = 0;
+long dataCount = 0;
+
+void setup() {
+  Serial.begin(9600);
+  while(Serial.available())
+  Serial.read();
+  Serial.begin(115200); //9600, 14400, 19200, 28800, 38400, 57600, or 115200. 230400
+  while(Serial.available())
+  Serial.read();
+  digitalWrite(LEDPIN, LOW);
+}
+
+void sendAck(String message) {
+  Serial.print(command);
+  Serial.print(",");
+  Serial.print(dataLength / 256);  //bitshift!
+  Serial.print(",");
+  Serial.print(dataLength);
+  Serial.print(",");
+  Serial.print(dataId);
+  Serial.print(",");
+  Serial.print(message);
+  command = 0;
+}
+
+void loop() {
+  // if we have enough bytes to receive a control message and there's no command yet set
+  if ((Serial.available() >= CONTROL_MESSAGE_SIZE) && (command == 0)) {
+    command = int(Serial.read());
+    subCommand = int(Serial.read());
+    dataLength = int(Serial.read());
+    dataId = int(Serial.read());
+    dataPosition = 0; // reset the data read position
+    if (command == 1) {
+      digitalWrite(LEDPIN, HIGH);
+      sendAck("Set LED ON");
+    } else if (command == 2) {
+      digitalWrite(LEDPIN, LOW);
+      sendAck("Set LED OFF");
+    } else if (command == 3) {  // get status/poll
+      sendAck("tot:" + String(dataCount));
+      dataCount = 0;
+    } else if (command == 4) {  // get points
+      dataLength = (subCommand * 256) + dataLength;
+      pointPosition = 0;
+      pointPositionData = 0;
+    } else if (command == 5) {  // get wave
+      // read the first byte of
+      soundWaveRepeatCycle = subCommand;
+    }
+  }
+
+  // is there something to do?
+  if (command != 0) {
+    // gobble as much data as possible
+    if (command == 4) { // points
+      while (Serial.available() && (dataPosition < dataLength)) {
+        point[pointPosition][pointPositionData] = Serial.read();
+        pointPositionData++;
+        if (pointPositionData == 3) {
+          pointPosition++;
+          pointPositionData = 0;
+        }
+        dataPosition++;
+      }
+    } else if (command == 5) { // wave
+      while (Serial.available() && (dataPosition < dataLength)) {
+        soundWave[dataPosition] = Serial.read();
+        dataPosition++;
+      }
+    }
+
+    // have we read the full length of data? Clear the command
+    if (dataPosition == dataLength) {
+      dataCount += dataLength;
+      sendAck("ok");
+    }
+  }
+
+}

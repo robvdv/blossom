@@ -10,8 +10,7 @@ import math
 import pickle
 import serial
 import struct
-import blossomComms as comms
-import time
+import comms
 
 from flask import Flask, render_template, session, request, send_from_directory
 from flask_socketio import SocketIO, emit, join_room, leave_room, \
@@ -22,17 +21,28 @@ from flask_socketio import SocketIO, emit, join_room, leave_room, \
 # the best option based on installed packages.
 async_mode = None
 
+pointsData = 0
+
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
 socketio = SocketIO(app, async_mode=async_mode)
 thread = None
-messageLastSentTime = time.time()
-bytesSent = 0
+lastMessageSentTime = datetime.datetime.now()
+
 print('Starting Blossom...')
+
+def background_thread():
+    while True:
+        time.sleep(1)
+        messages = comms.getMessages()
+        print('looking for message')
+        if messages:
+            print('Got message')
+            emit('message')
 
 @app.route('/')
 def index():
-    return render_template('blossom.html', async_mode=socketio.async_mode)
+    return render_template('index.html', async_mode=socketio.async_mode)
 
 @app.route('/js/<path:path>')
 def send_js(path):
@@ -42,27 +52,27 @@ def send_js(path):
 def send_css(path):
     return send_from_directory('css', path)
 
-@socketio.on('sendData', namespace='/test')
+@socketio.on('points', namespace='/test')
 def socket_points(message):
-    global messageLastSentTime
-    global bytesSent
-    data = message['data']
-    message = comms.sendData(data)
-    if message:
-        emit('message', message)
+    global pointsData
+    global lastMessageSentTime
+    pointsData = message['data']
+    timeDiff = datetime.datetime.now() - lastMessageSentTime
+    if timeDiff.microseconds >= 20000:
+        print('data.length: ' + str(len(pointsData)))
+        lastMessageSentTime = datetime.datetime.now()
+        comms.sendFrame(pointsData)
+        comms.getMessages()
 
-    #bytesSent = bytesSent + len(data)
-
-    #timeDiff = time.time() - messageLastSentTime
-    #if (timeDiff > 1):
-    #    emit('message', "Average throughput: " +str(bytesSent / timeDiff) )
-    #    messageLastSentTime = time.time()
-    #    bytesSent = 0
-
-@socketio.on('receiveData', namespace='/test')
+@socketio.on('getMessages', namespace='/test')
 def socket_getMessages():
-    messages = comms.receiveData()
+    messages = comms.getMessages()
     emit('message', messages)
+
+
+@socketio.on('my ping', namespace='/test')
+def ping_pong():
+    emit('my pong')
 
 if __name__ == '__main__':
     socketio.run(app, debug=True)
