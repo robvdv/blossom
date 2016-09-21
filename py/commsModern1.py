@@ -29,9 +29,9 @@ time.sleep(0.5)
 ser.flushInput()
 
 readyToSend = True
-lastSentCommand = 0
+lastSentCommand = -1
 lastSentLength = 0
-lastSentId = 0
+lastSentId = 1
 
 def sendData(data):
     global readyToSend
@@ -41,34 +41,50 @@ def sendData(data):
     message = False
     now = time.time()
 
-    lastSentCommand = data[0]
-    lastSentLength = data[1]
-    lastSentId = data[2]
-
     # check to see if there's data to receive first
     if readyToSend == False:
         inp = ser.read(ser.inWaiting())
         if inp:
-            print(str(now) + " got data: " + inp)
+
             ack = inp.strip().split(",")
             receivedCommand = int(ack[0])
             receivedLength = int(ack[1])
             receivedId = int(ack[2])
-            if len(ack) >= 4:
+
+            if receivedCommand == 3:
+                print(str(now) + " got data: " + inp)
+
+            if (len(ack) >= 4) and (ack[3] != "ok"):
                 message = ack[3]
 
-            if lastSentId != (receivedId + 1):
-                message = "dropped " + str(lastSentId - receivedId) + " frame(s)"
+            if lastSentId != receivedId:
+                message = "Error: dropped " + str(lastSentId - receivedId) + " frame(s) lastSentId: " \
+                          + str(lastSentId) + " receivedId: " + str(receivedId)
+                print(str(now) + " " + message)
 
-            if (receivedCommand == lastSentCommand) and (receivedLength == lastSentLength):
+            # lastSentCommand = -1 when it's never been set before
+            if ((lastSentCommand == -1) or (receivedCommand == lastSentCommand) and (receivedLength == lastSentLength)):
                 readyToSend = True
             else:
-                print("bad comms ")
-                print(receivedCommand)
-                print(receivedLength)
-                print(lastSentCommand)
-                print(lastSentLength)
+                logMsg = "Error: bad comms receivedId: "
+                logMsg += str(receivedId)
+                logMsg += " receivedCommand: "
+                logMsg += str(receivedCommand)
+                logMsg += " lastSentCommand: "
+                logMsg += str(lastSentCommand)
+
+                logMsg += " receivedLength: "
+                logMsg += str(receivedLength)
+                logMsg += " lastSentLength: "
+                logMsg += str(lastSentLength)
+
+                print(logMsg)
                 readyToSend = True
+
+            lastSentCommand = data[0]
+            lastSentLength = data[1]
+            lastSentId = data[2]
+
 
     # are we ready to send the data?
     if readyToSend == True:

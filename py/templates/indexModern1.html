@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <title>Arduino Comtest</title>
+  <script type="text/javascript" src="//code.jquery.com/jquery-1.9.1.min.js"></script>
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.5/socket.io.min.js"></script>
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.1.3/css/bootstrap-slider.min.css">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <script src="js/mainModern1.js"></script>
+
+  <script type="text/javascript"
+          src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.1.3/bootstrap-slider.min.js"></script>
+
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <style>
+
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Comtest</h1>
+  <p>
+    <button id="led-on">LED on</button>
+    <button id="led-off">LED off</button>
+  </p>
+
+  <p>
+    <button id="send-arbitrary-data">Send data</button>
+    <input id="arbitrary-data" type="text"/>
+  </p>
+
+  <p>
+    <label for="testdata-length">Data length</label>
+    <input id="testdata-length" type="text" value="5"/>
+    <br/>
+    <label for="testdata-msdelay">ms delay</label>
+    <input id="testdata-msdelay" type="text" value="500"/>
+    <br/>
+    <textarea id="testdata-value"></textarea>
+    <br/>
+    <button id="send-testdata">Send data</button>
+    <button id="send-testdata-stop">Stop</button>
+  </p>
+
+  <h3>Messages</h3>
+  <p>
+    <label for="log">Log</label>
+    <textarea id="log"></textarea>
+    <label for="error">Error</label>
+    <textarea id="error"></textarea>
+  </p>
+</div>
+</body>
+</html>

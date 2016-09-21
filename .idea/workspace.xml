@@ -5,17 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="699ef628-7930-4ebc-8d66-f79758af42d6" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/arduino/ardread2/commTestWobbly.ino" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/arduino/ardread2/laser4pinCommOptimised3.ino" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/py/blossomModern1.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/py/commsModern1.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/py/templates/indexModern1.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/arduino/ardread2/laserModern1.ino" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/py/js/mainModern1.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/py/comms2.py" afterPath="$PROJECT_DIR$/py/comms2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/py/js/comtest.js" afterPath="$PROJECT_DIR$/py/js/comtest.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/py/comtest.py" afterPath="$PROJECT_DIR$/py/comtest.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/arduino/ardread2/laser4pinCommOptimised2.ino" afterPath="$PROJECT_DIR$/arduino/ardread2/laser4pinCommOptimised2.ino" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="src.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1474183078968" ignored="false" />
+    <file path="/Dummy.txt" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1474386292188" ignored="false" />
     <file path="/blossom.py" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1474091370648" ignored="false" />
     <file path="/flaskthread.py" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1471693703224" ignored="false" />
     <file path="/comtest.py" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1474334615903" ignored="false" />
@@ -26,7 +26,7 @@
     <file path="$PROJECT_DIR$/../../../tal/tal_mobi/dev/templates/content.haxdebug.html" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1473232333386" ignored="false" />
     <file path="$PROJECT_DIR$/../../../tal/tal_mobi/dev/js/main.js" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1473172865003" ignored="false" />
     <file path="/main.js" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1474123383561" ignored="false" />
-    <file path="/a.dummy" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1474179098073" ignored="false" />
+    <file path="/a.dummy" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1474432138607" ignored="false" />
     <file path="$PROJECT_DIR$/../../../tal/tal_mobi/dev/index.html" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1473172865003" ignored="false" />
     <file path="$PROJECT_DIR$/../../../tal/tal_mobi/dev/js/app/talAnalytics.js" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1473172873601" ignored="false" />
     <file path="/talAnalytics.js" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1472547727744" ignored="false" />
@@ -52,9 +52,13 @@
     <file path="$PROJECT_DIR$/../../../tal/tal_mobi/dev/js/app/models/Offers.js" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1473172873601" ignored="false" />
     <file path="/main.css" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1474090651653" ignored="false" />
     <file path="/laser4pinCommOptimised.ino" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1474119896313" ignored="false" />
-    <file path="/comms2.py" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1474355760334" ignored="false" />
+    <file path="/comms2.py" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1474386784169" ignored="false" />
     <file path="/comtest.js" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1474352669423" ignored="false" />
     <file path="/comtest.html" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1474182655387" ignored="false" />
+    <file path="/blossomModern1.py" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1474387251860" ignored="false" />
+    <file path="/commsModern1.py" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1474433252425" ignored="false" />
+    <file path="/indexModern1.html" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1474432479829" ignored="false" />
+    <file path="/mainModern1.js" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1474432414406" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,82 +119,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="laser4pinCommOptimised2.ino" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/arduino/ardread2/laser4pinCommOptimised2.ino">
+      <file leaf-file-name="indexModern1.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/py/templates/indexModern1.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="78" column="0" selection-start="1967" selection-end="1967" vertical-scroll-proportion="-42.04">
+            <state line="42" column="88" selection-start="1399" selection-end="1399" vertical-scroll-proportion="-13.875">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="laser4pinCommOptimised.ino" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/arduino/ardread2/laser4pinCommOptimised.ino">
+      <file leaf-file-name="comtest.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/py/templates/comtest.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="75" column="0" selection-start="2403" selection-end="2573" vertical-scroll-proportion="0.0">
+            <state line="26" column="29" selection-start="935" selection-end="935" vertical-scroll-proportion="-16.25">
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="laser4pinCommOptimised3.ino" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/arduino/ardread2/laser4pinCommOptimised3.ino">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="43" column="55" selection-start="1115" selection-end="1115" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="commTestWobbly.ino" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/arduino/ardread2/commTestWobbly.ino">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="71" column="0" selection-start="1800" selection-end="1800" vertical-scroll-proportion="0.9558174">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="comms.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/py/comms.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="38" column="37" selection-start="820" selection-end="820" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#0#13#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="comms2.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/py/comms2.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="44" column="110" selection-start="862" selection-end="862" vertical-scroll-proportion="-4.24">
-              <folding>
-                <element signature="e#0#13#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="blossom.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/py/blossom.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="69" column="4" selection-start="1845" selection-end="1870" vertical-scroll-proportion="-7.6595745">
-              <folding>
-                <element signature="e#22#35#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="comtest.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/py/comtest.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="51" column="24" selection-start="1317" selection-end="1317" vertical-scroll-proportion="-13.84">
-              <folding>
-                <element signature="e#22#35#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -198,7 +140,7 @@
       <file leaf-file-name="comtest.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/py/js/comtest.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="10" selection-start="943" selection-end="943" vertical-scroll-proportion="-4.24">
+            <state line="55" column="43" selection-start="0" selection-end="2145" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -207,7 +149,67 @@
       <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/py/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="43" column="0" selection-start="1485" selection-end="1560" vertical-scroll-proportion="0.0">
+            <state line="40" column="36" selection-start="1518" selection-end="1518" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="comms2.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/py/comms2.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="56" column="45" selection-start="0" selection-end="2100" vertical-scroll-proportion="-17.4">
+              <folding>
+                <element signature="e#0#13#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="commsModern1.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/py/commsModern1.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="65" column="53" selection-start="1678" selection-end="1678" vertical-scroll-proportion="-4.88">
+              <folding>
+                <element signature="e#0#13#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="laserModern1.ino" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/arduino/ardread2/laserModern1.ino">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="71" column="0" selection-start="1795" selection-end="1795" vertical-scroll-proportion="0.8598131">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="blossomModern1.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/py/blossomModern1.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="23" column="47" selection-start="603" selection-end="603" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#22#35#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="commTestWobbly.ino" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/arduino/ardread2/commTestWobbly.ino">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="51" column="136" selection-start="1387" selection-end="1387" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mainModern1.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/py/js/mainModern1.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="22" column="83" selection-start="741" selection-end="741" vertical-scroll-proportion="-13.2">
               <folding />
             </state>
           </provider>
@@ -231,11 +233,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/arduino/temp.txt" />
-        <option value="$PROJECT_DIR$/py/templates/js/main.js" />
-        <option value="$PROJECT_DIR$/py/css/main.css" />
-        <option value="$PROJECT_DIR$/py/comms.py" />
-        <option value="$PROJECT_DIR$/py/blossom.py" />
         <option value="$PROJECT_DIR$/py/templates/index.html" />
         <option value="$PROJECT_DIR$/py/js/main.js" />
         <option value="$PROJECT_DIR$/arduino/ardread2/laser4pinCommOptimised.ino" />
@@ -245,8 +242,13 @@
         <option value="$PROJECT_DIR$/arduino/ardread2/laser4pinCommOptimised2.ino" />
         <option value="$PROJECT_DIR$/arduino/ardread2/laser4pinCommOptimised3.ino" />
         <option value="$PROJECT_DIR$/py/js/comtest.js" />
-        <option value="$PROJECT_DIR$/py/comms2.py" />
         <option value="$PROJECT_DIR$/arduino/ardread2/commTestWobbly.ino" />
+        <option value="$PROJECT_DIR$/py/comms2.py" />
+        <option value="$PROJECT_DIR$/py/blossomModern1.py" />
+        <option value="$PROJECT_DIR$/py/templates/indexModern1.html" />
+        <option value="$PROJECT_DIR$/py/js/mainModern1.js" />
+        <option value="$PROJECT_DIR$/py/commsModern1.py" />
+        <option value="$PROJECT_DIR$/arduino/ardread2/laserModern1.ino" />
       </list>
     </option>
   </component>
@@ -409,10 +411,10 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/arduino/ardread2" />
-      <recent name="$PROJECT_DIR$/py/js" />
-      <recent name="$PROJECT_DIR$/py/templates" />
       <recent name="$PROJECT_DIR$/py" />
+      <recent name="$PROJECT_DIR$/py/templates" />
+      <recent name="$PROJECT_DIR$/py/js" />
+      <recent name="$PROJECT_DIR$/arduino/ardread2" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/py/js" />
@@ -650,7 +652,11 @@
       <created>1474183080131</created>
       <updated>1474183080131</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="commtest wobbly but working">
+      <created>1474386293446</created>
+      <updated>1474386293446</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -660,7 +666,7 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18202247" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2483146" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -673,7 +679,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16915688" sideWeight="0.81797755" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16915688" sideWeight="0.7516854" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -724,7 +730,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="commtest" />
+    <option name="LAST_COMMIT_MESSAGE" value="commtest wobbly but working" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -748,6 +754,7 @@
     <MESSAGE value="Trying to get junk eating right" />
     <MESSAGE value="Junk eating no work" />
     <MESSAGE value="commtest" />
+    <MESSAGE value="commtest wobbly but working" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -775,109 +782,10 @@
     </PATH>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/arduino/ardread2/laser3pin.ino">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="76" column="18" selection-start="2027" selection-end="2027" vertical-scroll-proportion="-3.2">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/py/css/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="71" selection-start="356" selection-end="356" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/py/flaskthread.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="16" selection-start="536" selection-end="536" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/py/templates/comtest.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="109" selection-start="1114" selection-end="1114" vertical-scroll-proportion="-10.666667">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/arduino/ardread2/commTest.ino">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="31" selection-start="631" selection-end="631" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/py/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="133" column="37" selection-start="3474" selection-end="3474" vertical-scroll-proportion="-6.142857">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/py/js/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="0" selection-start="1485" selection-end="1560" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/py/comms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="37" selection-start="820" selection-end="820" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/py/blossom.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="69" column="4" selection-start="1845" selection-end="1870" vertical-scroll-proportion="-7.6595745">
-          <folding>
-            <element signature="e#22#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/arduino/ardread2/laser4pinCommOptimised.ino">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="75" column="0" selection-start="2403" selection-end="2573" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/arduino/ardread2/laser4pinCommOptimised2.ino">
       <provider selected="true" editor-type-id="text-editor">
         <state line="78" column="0" selection-start="1967" selection-end="1967" vertical-scroll-proportion="-42.04">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/py/js/comtest.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="10" selection-start="943" selection-end="943" vertical-scroll-proportion="-4.24">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/py/comtest.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="24" selection-start="1317" selection-end="1317" vertical-scroll-proportion="-13.84">
-          <folding>
-            <element signature="e#22#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/py/comms2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="110" selection-start="862" selection-end="862" vertical-scroll-proportion="-4.24">
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -888,9 +796,110 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/arduino/ardread2/laser4pinCommOptimised.ino">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="44" column="58" selection-start="1446" selection-end="1446" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/py/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="133" column="28" selection-start="3474" selection-end="3474" vertical-scroll-proportion="-0.625">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/py/blossom.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="69" column="4" selection-start="1845" selection-end="1870" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#22#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/py/comtest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="59" column="48" selection-start="1583" selection-end="1583" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#22#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/py/comms2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="56" column="45" selection-start="0" selection-end="2100" vertical-scroll-proportion="-17.4">
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/py/templates/comtest.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="29" selection-start="935" selection-end="935" vertical-scroll-proportion="-16.25">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/py/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="36" selection-start="1518" selection-end="1518" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/py/js/comtest.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="55" column="43" selection-start="0" selection-end="2145" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/py/blossomModern1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="47" selection-start="603" selection-end="603" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#22#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/arduino/ardread2/commTestWobbly.ino">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="71" column="0" selection-start="1800" selection-end="1800" vertical-scroll-proportion="0.9558174">
+        <state line="51" column="136" selection-start="1387" selection-end="1387" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/py/templates/indexModern1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="88" selection-start="1399" selection-end="1399" vertical-scroll-proportion="-13.875">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/py/js/mainModern1.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="83" selection-start="741" selection-end="741" vertical-scroll-proportion="-13.2">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/py/commsModern1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="65" column="53" selection-start="1678" selection-end="1678" vertical-scroll-proportion="-4.88">
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/arduino/ardread2/laserModern1.ino">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="71" column="0" selection-start="1795" selection-end="1795" vertical-scroll-proportion="0.8598131">
           <folding />
         </state>
       </provider>
