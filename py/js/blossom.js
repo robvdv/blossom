@@ -139,7 +139,6 @@ $(document).ready(function () {
 		// push in the tone/frame start config
 		grapher.points = [1];
 		grapher.soundWave = [];
-		grapher.repeatToneBytes = parseInt(toneFrequencyRatio);
 
 		// push in the points data
 		grapher.pointsPerFrame = pointsPerFrame;
@@ -189,11 +188,20 @@ $(document).ready(function () {
 		// match the number of repeatToneBytes and waveBytes to the naturalCircleBitsFrequency maximising the number of bytes for best wave reproduction
 
 
-		var naturalCircleBitsFrequency = 31372 / pointsPerFrame;
-		var numberOfBytesForWave = tone * (naturalCircleBitsFrequency
+		/*
+		We want tone: 75 Hz
+		We have 100 points in the frame
+		How many times do we have to repeat a 75 Hz pattern of how many bytes to sync with pattern?
+		 */
 
-		for (var i = 0; i < waveBytes; i++) {
-			var radians = i * (Math.PI / 180) * (360 / waveBytes);
+		var toneBytes = 31372 / tone / 8; // number of bytes to get that tone
+		grapher.repeatToneBytes = Math.floor(toneBytes / 120); // do we have more than 120 bytes? we'll need to repeat some
+		if (grapher.repeatToneBytes > 0) {
+			toneBytes = Math.floor(toneBytes / grapher.repeatToneBytes);
+		}
+
+		for (var i = 0; i < toneBytes; i++) {
+			var radians = i * (Math.PI / 180) * (360 / toneBytes);
 			var amplitudeMultiplier = 1;
 			var waveAmplitude = (Math.sin(radians) + 1) / 2 * amplitudeMultiplier; // 0 - 2 range
 			grapher.soundWave[i] = Math.floor(waveAmplitude * 255 * toneAmplitude / 100);

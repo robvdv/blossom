@@ -29,7 +29,7 @@ int dataPosition = 0;
 long dataCount = 0;
 
 volatile int frameOutputCounter;             // which frame we're playing
-
+volatile byte colours;
 void setup() {
   Serial.begin(9600); 
   while(Serial.available())
@@ -87,7 +87,7 @@ void loop() {
       sendAck("tot:" + String(dataCount));
       dataCount = 0;
     } else if (command == 4) {  // get points
-      dataLength = (subCommand * 256) + dataLength; 
+      dataLength = (subCommand * 256) + dataLength; // subcommand is used to define the length here
       pointCount = dataLength / 3;
       pointPosition = 0;
       pointPositionData = 0;
@@ -120,7 +120,7 @@ void loop() {
     // have we read the full length of data? Clear the command
     if (dataPosition == dataLength) {
       dataCount += dataLength;
-      sendAck("ok");
+      sendAck("ok" + String(pointCount));
     }
   }
   
@@ -155,15 +155,23 @@ void Setup_timer2() {
 // FOUT = (M (REFCLK)) / (2 exp 32)
 // runtime : 8 microseconds ( inclusive push and pop)
 ISR(TIMER2_OVF_vect) {
-/*
-  sbi(PORTD,7);          // Test / set PORTD,7 high to observe timing with a oscope
+  //sbi(PORTD,7);          // Test / set PORTD,7 high to observe timing with a oscope
 
   OCR2A = point[pointIndex][0];
   OCR2B = point[pointIndex][1];
+
+  colours = point[pointIndex][2];
+  //digitalWrite(10, bitRead(colours, 0));
+  //digitalWrite(9, bitRead(colours, 1));
+  //digitalWrite(8, bitRead(colours, 2));
+  //digitalWrite(10, 1);
+  //digitalWrite(9, 1);
+  //digitalWrite(8, 1);
+  bitWrite(PORTB,2, bitRead(colours, 0)); //pin 8
+  bitWrite(PORTB,1, bitRead(colours, 1)); //pin 9
+  bitWrite(PORTB,0, bitRead(colours, 2)); //pin 10
+
   
-  digitalWrite(10, bitRead(point[pointIndex][2], 0));
-  digitalWrite(9, bitRead(point[pointIndex][2], 1));
-  digitalWrite(8, bitRead(point[pointIndex][2], 2));
   digitalWrite(7, bitRead(soundWave[soundWaveIndex], soundWaveByteIndex));
 
   // cycle through the points
@@ -171,13 +179,18 @@ ISR(TIMER2_OVF_vect) {
   if(pointIndex >= pointCount) { 
     pointIndex = 0;
   }
+/*
+  soundWaveByteIndex++;
+  if(soundWaveByteIndex >= 8) {  // first cycle through each bit in the byte
+    soundWaveByteIndex = 0;
+    soundWaveIndex++;
+    if (soundWaveIndex >= soundWaveCount) { // finally if we've exceeded all samples
+      soundWaveIndex = 0;
+    }
+  }
+*/
 
   // cycle through the sound
-  soundWaveIndex++;
-  if(soundWaveIndex >= soundWaveCount) { 
-    soundWaveIndex = 0;
-  }
-  
   soundWaveByteIndex++;
   if(soundWaveByteIndex >= 8) {  // first cycle through each bit in the byte
     soundWaveByteIndex = 0;
@@ -190,7 +203,7 @@ ISR(TIMER2_OVF_vect) {
       }
     }
   }
+  
 
-  cbi(PORTD,7);            // reset PORTD,7
-  */
+  //cbi(PORTD,7);            // reset PORTD,7
 }

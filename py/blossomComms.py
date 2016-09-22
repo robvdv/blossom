@@ -7,7 +7,7 @@ import re
 import datetime
 import math
 
-ser = serial.Serial('/dev/ttyUSB0', 9600)
+ser = serial.Serial('/dev/ttyUSB1', 9600)
 
 # reset the arduino
 ser.setDTR(level=False)
@@ -17,7 +17,7 @@ ser.flushInput()
 ser.setDTR()
 time.sleep(0.5)
 
-ser = serial.Serial('/dev/ttyUSB0', 115200)   #9600, 14400, 19200, 28800, 38400, 57600, or 115200. 230400
+ser = serial.Serial('/dev/ttyUSB1', 115200)   #9600, 14400, 19200, 28800, 38400, 57600, or 115200. 230400
 
 # reset the arduino
 ser.setDTR(level=False)

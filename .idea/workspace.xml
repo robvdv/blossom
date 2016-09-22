@@ -5,18 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="699ef628-7930-4ebc-8d66-f79758af42d6" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/py/templates/blossom.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/arduino/ardread2/blossom.ino" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/py/js/blossom.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/py/blossomComms.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/arduino/ardread2/blossom_bak.ino" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/py/blossom_initial.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/py/blossom.py" afterPath="$PROJECT_DIR$/py/blossom.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/arduino/ardread2/blossom.ino" afterPath="$PROJECT_DIR$/arduino/ardread2/blossom.ino" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/py/js/blossom.js" afterPath="$PROJECT_DIR$/py/js/blossom.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/py/blossomComms.py" afterPath="$PROJECT_DIR$/py/blossomComms.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="src.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1474433430223" ignored="false" />
+    <file path="/Dummy.txt" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1474486710569" ignored="false" />
     <file path="/blossom.py" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1474433858740" ignored="false" />
     <file path="/flaskthread.py" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1471693703224" ignored="false" />
     <file path="/comtest.py" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1474334615903" ignored="false" />
@@ -61,7 +57,7 @@
     <file path="/indexModern1.html" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1474432479829" ignored="false" />
     <file path="/mainModern1.js" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1474432414406" ignored="false" />
     <file path="/blossom.html" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1474483985492" ignored="false" />
-    <file path="/blossom.js" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1474486538331" ignored="false" />
+    <file path="/blossom.js" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1474515775775" ignored="false" />
     <file path="/blossomComms.py" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1474484909366" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -137,7 +133,7 @@
       <file leaf-file-name="blossomComms.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/py/blossomComms.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="55" column="34" selection-start="1277" selection-end="1278" vertical-scroll-proportion="-7.8">
+            <state line="19" column="33" selection-start="327" selection-end="327" vertical-scroll-proportion="-11.4">
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -145,10 +141,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="blossom.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="blossom.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/py/js/blossom.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="188" column="152" selection-start="6478" selection-end="6478" vertical-scroll-proportion="0.4364261">
+            <state line="199" column="69" selection-start="6872" selection-end="6872" vertical-scroll-proportion="-7.16">
               <folding />
             </state>
           </provider>
@@ -172,10 +168,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="blossom.ino" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="blossom.ino" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/arduino/ardread2/blossom.ino">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="180" column="45" selection-start="5416" selection-end="5416" vertical-scroll-proportion="-16.6">
+            <state line="209" column="0" selection-start="6395" selection-end="6395" vertical-scroll-proportion="0.94957983">
               <folding />
             </state>
           </provider>
@@ -247,10 +243,10 @@
         <option value="$PROJECT_DIR$/arduino/ardread2/laserModern1.ino" />
         <option value="$PROJECT_DIR$/py/templates/indexModern1.html" />
         <option value="$PROJECT_DIR$/py/blossom.py" />
-        <option value="$PROJECT_DIR$/arduino/ardread2/blossom.ino" />
         <option value="$PROJECT_DIR$/py/templates/blossom.html" />
-        <option value="$PROJECT_DIR$/py/blossomComms.py" />
         <option value="$PROJECT_DIR$/py/js/blossom.js" />
+        <option value="$PROJECT_DIR$/py/blossomComms.py" />
+        <option value="$PROJECT_DIR$/arduino/ardread2/blossom.ino" />
       </list>
     </option>
   </component>
@@ -662,7 +658,11 @@
       <created>1474433432611</created>
       <updated>1474433432611</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Getting tone working">
+      <created>1474486712212</created>
+      <updated>1474486712213</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -736,7 +736,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Simple working modern" />
+    <option name="LAST_COMMIT_MESSAGE" value="Getting tone working" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -762,6 +762,7 @@
     <MESSAGE value="commtest" />
     <MESSAGE value="commtest wobbly but working" />
     <MESSAGE value="Simple working modern" />
+    <MESSAGE value="Getting tone working" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -879,13 +880,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/arduino/ardread2/blossom.ino">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="180" column="45" selection-start="5416" selection-end="5416" vertical-scroll-proportion="-16.6">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/py/templates/blossom.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="65" column="14" selection-start="1806" selection-end="1820" vertical-scroll-proportion="-6.632653">
@@ -893,18 +887,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/py/js/blossom.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="199" column="69" selection-start="6872" selection-end="6872" vertical-scroll-proportion="-7.16">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/py/blossomComms.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="34" selection-start="1277" selection-end="1278" vertical-scroll-proportion="-7.8">
+        <state line="19" column="33" selection-start="327" selection-end="327" vertical-scroll-proportion="-11.4">
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/py/js/blossom.js">
+    <entry file="file://$PROJECT_DIR$/arduino/ardread2/blossom.ino">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="188" column="152" selection-start="6478" selection-end="6478" vertical-scroll-proportion="0.4364261">
+        <state line="209" column="0" selection-start="6395" selection-end="6395" vertical-scroll-proportion="0.94957983">
           <folding />
         </state>
       </provider>
