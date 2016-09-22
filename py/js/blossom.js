@@ -88,6 +88,9 @@ $(document).ready(function () {
 		pointPattern.$pointsText = $('#points-text'); // split this out
 		pointPattern.$waveText = $('#wave-text'); // split this out
 		pointPattern.$toneFrequency = $('#tone-frequency'); // split this out
+        pointPattern.$patternFrequency = $('#pattern-frequency'); // split this out
+        pointPattern.$patternToneRatio = $('#pattern-tone-ratio'); // split this out
+
 		pointPattern.canvas = pointPattern.$canvas[0];
 		pointPattern.context = pointPattern.canvas.getContext("2d");
 	};
@@ -135,12 +138,33 @@ $(document).ready(function () {
 		grapher.pointsPerFrame = 0;
 	};
 
-	grapher.calcCycle = function( tone, toneFrequencyRatio, toneFrequencyOffset, toneAmplitude, pointsPerFrame, circleSize, circleRatio, smallCirclePhase, redMin, redMax, greenMin, greenMax, blueMin, blueMax ) {
+	grapher.calcCycle = function( tone, toneFrequencyOffset, toneAmplitude, pointsPerFrame, biasX, biasY, multiplyX, multiplyY, circleSize, circleRatio, smallCirclePhase, redMin, redMax, greenMin, greenMax, blueMin, blueMax ) {
 		// push in the tone/frame start config
 		grapher.points = [1];
 		grapher.soundWave = [];
 
-		// push in the points data
+        /*
+         We want tone: 75 Hz
+         We have 100 points in the frame
+         How many times do we have to repeat a 75 Hz pattern of how many bytes to sync with pattern?
+         */
+
+        var toneBytes = 31372 / tone / 8; // number of bytes to get that tone
+        grapher.repeatToneBytes = Math.floor(toneBytes / 120); // do we have more than 120 bytes? we'll need to repeat some
+        toneBytes = Math.floor(toneBytes / (grapher.repeatToneBytes + 1));
+
+        for (var i = 0; i < toneBytes; i++) {
+            var radians = i * (Math.PI / 180) * (360 / toneBytes);
+            var amplitudeMultiplier = 1;
+            var waveAmplitude = (Math.sin(radians) + 1) / 2 * amplitudeMultiplier; // 0 - 2 range
+            grapher.soundWave[i] = Math.floor((waveAmplitude * 255 * toneAmplitude / 100) / (grapher.repeatToneBytes + 1));
+        }
+
+        var freq = 31372 / (grapher.soundWave.length * (grapher.repeatToneBytes + 1) * 8);
+        var patt = 31372 / (grapher.points.length);
+        var ratio = patt / freq;
+
+        // push in the points data
 		grapher.pointsPerFrame = pointsPerFrame;
 		var frameMult = 360 / pointsPerFrame;
 		var bigCircleMultiplier = (circleRatio / 100);
@@ -177,35 +201,25 @@ $(document).ready(function () {
 			var green = ((hypotenuse >= greenMinCutoff) && (hypotenuse <= greenMaxCutoff)) ? grapher.greenMask : 0;
 			var blue = ((hypotenuse >= blueMinCutoff) && (hypotenuse <= blueMaxCutoff)) ? grapher.blueMask : 0;
 
+            posX = (posX + parseInt(biasX)) * parseFloat(multiplyX);
+            posY = (posY + parseInt(biasY)) * parseFloat(multiplyY);
+            if (posX > 255) {
+                posX = 255;
+            }
+            if (posY > 255) {
+                posY = 255;
+            }
+            if (posX < 0) {
+                posX = 0;
+            }
+            if (posY < 0) {
+                posY = 0;
+            }
+
 			grapher.points[i] = [Math.floor(posX), Math.floor(posY), red + green + blue];
 		}
 
 		var wavePatternOffset = 0; // adjust for offsets later
-		var wavePattenCycleRatio = toneFrequencyRatio / 8; // number of point patterns to draw per wave cycle
-		var waveBytes = (pointsPerFrame * wavePattenCycleRatio) + wavePatternOffset;
-
-		// TASK!
-		// match the number of repeatToneBytes and waveBytes to the naturalCircleBitsFrequency maximising the number of bytes for best wave reproduction
-
-
-		/*
-		We want tone: 75 Hz
-		We have 100 points in the frame
-		How many times do we have to repeat a 75 Hz pattern of how many bytes to sync with pattern?
-		 */
-
-		var toneBytes = 31372 / tone / 8; // number of bytes to get that tone
-		grapher.repeatToneBytes = Math.floor(toneBytes / 120); // do we have more than 120 bytes? we'll need to repeat some
-		if (grapher.repeatToneBytes > 0) {
-			toneBytes = Math.floor(toneBytes / grapher.repeatToneBytes);
-		}
-
-		for (var i = 0; i < toneBytes; i++) {
-			var radians = i * (Math.PI / 180) * (360 / toneBytes);
-			var amplitudeMultiplier = 1;
-			var waveAmplitude = (Math.sin(radians) + 1) / 2 * amplitudeMultiplier; // 0 - 2 range
-			grapher.soundWave[i] = Math.floor(waveAmplitude * 255 * toneAmplitude / 100);
-		}
 
 	};
 
@@ -288,8 +302,16 @@ $(document).ready(function () {
 	};
 
 	grapher.updateStats = function() {
-		var freq = 31372 / (grapher.soundWave.length * grapher.repeatToneBytes * 8);
-		pointPattern.$toneFrequency.text( freq );
+		var freq = 31372 / (grapher.soundWave.length * (grapher.repeatToneBytes + 1) * 8);
+        var patt = 31372 / (grapher.points.length);
+        var ratio = patt / freq;
+        freq = Math.floor(freq * 1000) / 1000;
+        patt = Math.floor(patt * 1000) / 1000;
+        ratio = Math.floor(ratio * 1000) / 1000;
+        pointPattern.$toneFrequency.text( freq );
+        pointPattern.$patternFrequency.text( patt );
+        pointPattern.$patternToneRatio.text( ratio );
+
 	};
 
 	grapher.clear = function() {
@@ -326,10 +348,13 @@ $(document).ready(function () {
 		grapher.clear();
 		grapher.calcCycle(
 			sliders['tone'].value,
-			sliders['tone-frequency-ratio'].value,
 			sliders['tone-frequency-point-offset'].value,
 			sliders['tone-amplitude'].value,
-			sliders['points-per-frame'].value,
+            sliders['points-per-frame'].value,
+            sliders['bias-x'].value,
+            sliders['bias-y'].value,
+            sliders['multiply-x'].value,
+            sliders['multiply-y'].value,
 			sliders['circle-size'].value,
 			sliders['circle-ratio'].value,
 			sliders['circle-size-small'].value,
@@ -388,6 +413,122 @@ $(document).ready(function () {
 		comms.arduinoOnOff( controls.$arduinoOnOff.is(':checked') );
 	});
 
+    var visualise = {};
+    visualise.$plotData = $('#plot-data');
+    visualise.$msPerPoint = $('#ms-per-point');
+    visualise.$tweeningFrames = $('#tweening-frames');
+    visualise.tweeningFrames = 0;
+    visualise.$dataInputMappings = $('#data-input-mappings');
+    visualise.$go = $('#go');
+    visualise.$stop = $('#stop');
+
+    visualise.plotDataIndex = 0;
+    visualise.dataLength = 0;
+
+    visualise.getData = function() {
+        visualise.data = eval( visualise.$plotData.val() );
+        visualise.$dataInputMappings.html('');
+        _.each( visualise.data, function(dataInput) {
+            visualise.$dataInputMappings.append('<div>' +
+                    '<span class="data-target">' + dataInput.target + ' </span>' +
+                    '<select class="data-mapping">' +
+                        '<option value="">- Select -</option>' +
+                        '<option value="tone">tone</option>' +
+                        '<option value="tone-amplitude">tone-amplitude</option>' +
+                        '<option value="circle-size">circle-size</option>' +
+                        '<option value="circle-ratio">circle-ratio</option>' +
+                        '<option value="circle-size-small">circle-size-small</option>' +
+                        '<option value="phase-red-min">phase-red-min</option>' +
+                        '<option value="phase-red-max">phase-red-max</option>' +
+                        '<option value="phase-green-min">phase-green-min</option>' +
+                        '<option value="phase-green-max">phase-green-max</option>' +
+                        '<option value="phase-blue-min">phase-blue-min</option>' +
+                        '<option value="phase-blue-max">phase-blue-max</option>' +
+                    '</select></span>' +
+                '</div>'
+            );
+
+            dataInput.$select = visualise.$dataInputMappings.find('.data-mapping:last');
+
+            dataInput.min = Number.MAX_VALUE;
+            dataInput.max = Number.MIN_VALUE;
+
+            visualise.dataLength = dataInput.datapoints.length; //scrappy
+
+            _.each( dataInput.datapoints, function(val) {
+                if (val[0] < dataInput.min) {
+                    dataInput.min = val[0];
+                }
+                if (val[0] > dataInput.max) {
+                    dataInput.max = val[0];
+                }
+            });
+
+            console.log("dataInput.target: " + dataInput.target + " min: " + dataInput.min + " max: " + dataInput.max );
+        });
+    };
+
+    visualise.getData();
+
+    visualise.$stop.click( function() {
+        clearInterval( visualise.plotDataInterval );
+    });
+
+    visualise.$go.click( function() {
+        visualise.tweeningFrames = visualise.$tweeningFrames.val();
+        visualise.tweeningCount = 0;
+        clearInterval( visualise.plotDataInterval );
+        visualise.plotDataInterval = setInterval( function() {
+                var $slider = null;
+                _.each( visualise.data, function(dataInput) {
+                    var dataPoint = dataInput.datapoints[visualise.plotDataIndex];
+                    var val = dataInput.$select.val();
+                    if (val) {
+                        var selectVal = dataInput.$select.val();
+                        var sliderName;
+                        var arrVal = null;
+                        if (selectVal.indexOf('-min') > -1) {
+                            sliderName = selectVal.substr(0, selectVal.indexOf('-min'));
+                        } else if (selectVal.indexOf('-max') > -1) {
+                            sliderName = selectVal.substr(0, selectVal.indexOf('-max'));
+                        } else {
+                            sliderName = selectVal;
+                        }
+                        $slider = $('#' + sliderName); // add min max
+
+                        var sliderMinVal = parseFloat($slider.attr('data-slider-min'));  // could get from slider opts?
+                        var sliderMaxVal = parseFloat($slider.attr('data-slider-max'));  // could get from slider opts?
+                        var val = ((dataPoint[0] - dataInput.min) / (dataInput.max - dataInput.min) * (sliderMaxVal - Math.abs(sliderMinVal))) + sliderMinVal;
+
+                        var setVal = val;
+                        if (selectVal.indexOf('-min') > -1) {
+                            setVal = $slider.val().split(',');
+                            setVal[0] = val;
+                            setVal[1] = parseFloat(setVal[1]);
+                        } else if (selectVal.indexOf('-max') > -1) {
+                            setVal = $slider.val().split(',');
+                            setVal[0] = parseFloat(setVal[0]);
+                            setVal[1] = val;
+                        }
+
+                        //$slider.slider( "option", "value", val);
+                        $slider.slider('setValue', setVal);
+                        $slider.trigger('slide');
+                        //$slider.slider('refresh');
+                    }
+                });
+                comms.sendPoints();
+
+                visualise.plotDataIndex++;
+                if (visualise.plotDataIndex >= visualise.dataLength) {
+                    visualise.plotDataIndex = 0;
+                }
+
+            },
+            parseInt( visualise.$msPerPoint.val() )
+        );
+
+    });
 
 });
 
