@@ -49,7 +49,13 @@ $(document).ready(function () {
 	});
 
 	$('#send-points').on('click', function() {
-		comms.sendPoints();
+		if (comms.autoSendPoints) {
+			clearInterval(comms.autoSendPoints);
+		} else {
+			setInterval( function() {
+				comms.sendPoints();
+			}, 100);
+		}
 	});
 
 	$('#send-wave').on('click', function() {
