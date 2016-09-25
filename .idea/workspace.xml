@@ -5,13 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="699ef628-7930-4ebc-8d66-f79758af42d6" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/py/templates/blossom.html" afterPath="$PROJECT_DIR$/py/templates/blossom.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/py/js/blossom.js" afterPath="$PROJECT_DIR$/py/js/blossom.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/py/css/main.css" afterPath="$PROJECT_DIR$/py/css/main.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/py/py.iml" afterPath="$PROJECT_DIR$/py/py.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="src.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1474693321260" ignored="false" />
+    <file path="/Dummy.txt" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1474698882648" ignored="false" />
     <file path="/blossom.py" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1474433858740" ignored="false" />
     <file path="/flaskthread.py" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1471693703224" ignored="false" />
     <file path="/comtest.py" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1474334615903" ignored="false" />
@@ -46,7 +49,7 @@
     <file path="$PROJECT_DIR$/../../../tal/tal_mobi/dev/js/app/screens/cartScreen.js" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1473172873601" ignored="false" />
     <file path="$PROJECT_DIR$/../../../tal/tal_mobi/dev/js/app/screens/profileScreen.js" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1473172873601" ignored="false" />
     <file path="$PROJECT_DIR$/../../../tal/tal_mobi/dev/js/app/models/Offers.js" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1473172873601" ignored="false" />
-    <file path="/main.css" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1474090651653" ignored="false" />
+    <file path="/main.css" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1474777416495" ignored="false" />
     <file path="/laser4pinCommOptimised.ino" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1474119896313" ignored="false" />
     <file path="/comms2.py" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1474386784169" ignored="false" />
     <file path="/comtest.js" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1474352669423" ignored="false" />
@@ -55,9 +58,10 @@
     <file path="/commsModern1.py" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1474433252425" ignored="false" />
     <file path="/indexModern1.html" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1474432479829" ignored="false" />
     <file path="/mainModern1.js" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1474432414406" ignored="false" />
-    <file path="/blossom.html" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1474483985492" ignored="false" />
-    <file path="/blossom.js" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1474693871703" ignored="false" />
+    <file path="/blossom.html" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1474777903340" ignored="false" />
+    <file path="/blossom.js" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1474781813506" ignored="false" />
     <file path="/blossomComms.py" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1474484909366" ignored="false" />
+    <file path="/fragment.java" changelist="699ef628-7930-4ebc-8d66-f79758af42d6" time="1474776540890" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,19 +147,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="blossom.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="blossom.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/py/js/blossom.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="541" column="0" selection-start="19048" selection-end="19048" vertical-scroll-proportion="0.0">
+            <state line="595" column="29" selection-start="20921" selection-end="20921" vertical-scroll-proportion="0.4969697">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="blossom.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="main.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/py/css/main.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="23" column="56" selection-start="356" selection-end="356" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="blossom.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/py/templates/blossom.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="122" column="32" selection-start="3524" selection-end="3525" vertical-scroll-proportion="0.27146465">
+            <state line="99" column="10" selection-start="2736" selection-end="2768" vertical-scroll-proportion="-7.979592">
               <folding />
             </state>
           </provider>
@@ -174,15 +187,6 @@
         <entry file="file://$PROJECT_DIR$/arduino/ardread2/blossom_bak.ino">
           <provider selected="true" editor-type-id="text-editor">
             <state line="14" column="47" selection-start="304" selection-end="304" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="laser4pinCommOptimised2.ino" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/arduino/ardread2/laser4pinCommOptimised2.ino">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -224,7 +228,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/py/comtest.py" />
         <option value="$PROJECT_DIR$/arduino/ardread2/laser4pinCommOptimised2.ino" />
         <option value="$PROJECT_DIR$/arduino/ardread2/laser4pinCommOptimised3.ino" />
         <option value="$PROJECT_DIR$/py/js/comtest.js" />
@@ -238,8 +241,9 @@
         <option value="$PROJECT_DIR$/py/blossom.py" />
         <option value="$PROJECT_DIR$/arduino/ardread2/blossom.ino" />
         <option value="$PROJECT_DIR$/py/blossomComms.py" />
-        <option value="$PROJECT_DIR$/py/js/blossom.js" />
+        <option value="$PROJECT_DIR$/py/css/main.css" />
         <option value="$PROJECT_DIR$/py/templates/blossom.html" />
+        <option value="$PROJECT_DIR$/py/js/blossom.js" />
       </list>
     </option>
   </component>
@@ -284,6 +288,58 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="blossom" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="py" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="blossom" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="py" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="blossom" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="py" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="blossom" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="py" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -296,6 +352,7 @@
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/py" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
@@ -583,7 +640,11 @@
       <created>1474524149025</created>
       <updated>1474524149025</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Better...">
+      <created>1474698884667</created>
+      <updated>1474698884667</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -593,6 +654,7 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2483146" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -600,6 +662,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32921347" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32921347" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -608,8 +671,6 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2483146" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -657,7 +718,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Basic working" />
+    <option name="LAST_COMMIT_MESSAGE" value="Better..." />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -685,6 +746,7 @@
     <MESSAGE value="Simple working modern" />
     <MESSAGE value="Getting tone working" />
     <MESSAGE value="Basic working" />
+    <MESSAGE value="Better..." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -712,11 +774,6 @@
     </PATH>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/py/js/mainModern1.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="42" selection-start="0" selection-end="2254" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/py/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="392" column="19" selection-start="3351" selection-end="13077" vertical-scroll-proportion="0.0" />
@@ -798,16 +855,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/py/js/blossom.js">
+    <entry file="file://$PROJECT_DIR$/py/css/main.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="541" column="0" selection-start="19048" selection-end="19048" vertical-scroll-proportion="0.0">
+        <state line="23" column="56" selection-start="356" selection-end="356" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/py/templates/blossom.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="122" column="32" selection-start="3524" selection-end="3525" vertical-scroll-proportion="0.27146465">
+        <state line="99" column="10" selection-start="2736" selection-end="2768" vertical-scroll-proportion="-7.979592">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/py/js/blossom.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="595" column="29" selection-start="20921" selection-end="20921" vertical-scroll-proportion="0.4969697">
           <folding />
         </state>
       </provider>
@@ -865,7 +929,7 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>arduino</last-edited>
+          <last-edited>py</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

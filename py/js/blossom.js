@@ -53,6 +53,7 @@ $(document).ready(function () {
 			clearInterval(comms.autoSendPoints);
 		} else {
 			setInterval( function() {
+
 				comms.sendPoints();
 			}, 100);
 		}
@@ -391,13 +392,41 @@ $(document).ready(function () {
 		drawCircle();
 	};
 
+	var changeOsc = function (slider) {
+		slider.oscAmp = parseFloat(slider.$oscAmp.val());
+		slider.oscFreq = parseFloat(slider.$oscFreq.val());
+	};
+
+
 	var sliders = blossom.sliders = {};
 
-	$('input.slider').each(function () {
+	var addOscillator = function($slider) {
+		var $els = [];
+		var htmlOsc =
+			'<input class="slider osc-amp" id="' + $slider.attr('id') + '-osc-amp" data-event="' + $slider.attr('id') + ' osc amp" type="text" data-slider-min="0" data-slider-max="100"' +
+				'data-slider-step="1" data-slider-value="0"/>' +
+				'</div>';
+		$slider.after(htmlOsc);
+		$els.push($slider.next());
+		var htmlFreq =
+			'<input class="slider osc-freq" id="' + $slider.attr('id') + '-osc-freq" data-event="' + $slider.attr('id') + ' osc amp" type="text" data-slider-min="0" data-slider-max="100"' +
+				'data-slider-step="1" data-slider-value="0"/>' +
+				'</div>';
+		$slider.after(htmlFreq);
+		$els.push($slider.next());
+		return $($els);
+	};
+
+	$('input.slider.parameter').each(function () {
 		var $slider = $(this);
 		var $val = $slider.closest('.row').find('.slider-val');
+
+		var $oscs = addOscillator($slider);
+
 		var sliderOptions = {
 			$el: $slider,
+			$oscAmp: $oscs[0],
+			$oscFreq: $oscs[1],
 			$val: $val,
 			value: -1,
 			value2: -1
@@ -406,11 +435,21 @@ $(document).ready(function () {
 		$slider.slider({
 			tooltip: 'hide'
 		}).on('slide', function(event) { changeSlider(sliderOptions) });
+
+		sliderOptions.$oscAmp.slider({
+			tooltip: 'hide'
+		}).on('slide', function(event) { changeOsc(sliderOptions) });
+
+		sliderOptions.$oscFreq.slider({
+			tooltip: 'hide'
+		}).on('slide', function(event) { changeOsc(sliderOptions) });
+
 	});
 
 	$('input.slider').each(function () {
 		$(this).trigger('slide');
 	});
+
 
 	var controls = blossom.controls = {};
 
@@ -426,7 +465,8 @@ $(document).ready(function () {
     visualise.tweeningFrames = 0;
     visualise.$dataInputMappings = $('#data-input-mappings');
     visualise.$go = $('#go');
-    visualise.$stop = $('#stop');
+	visualise.$stop = $('#stop');
+	visualise.$oscillate = $('#oscillate');
 
     visualise.plotDataIndex = 0;
     visualise.dataLength = 0;
@@ -535,6 +575,51 @@ $(document).ready(function () {
         );
 
     });
+
+	visualise.$oscillate.click( function() {
+		if (visualise.oscillate) {
+			clearInterval( visualise.oscillate );
+		} else {
+			visualise.oscillate = setInterval( function() {
+				var cycle = new Date().getTime() % 360; // about 3 times per second
+
+
+				_.each( sliders, function(slider) {
+					if (slider.oscAmp == 0) {
+						return true;
+					}
+					//slider.oscFreq
+					var sliderMinVal = parseFloat(slider.$el.attr('data-slider-min'));  // could get from slider opts?
+					var sliderMaxVal = parseFloat(slider.$el.attr('data-slider-max'));  // could get from slider opts?
+					var rangeMult = sliderMaxVal - sliderMinVal;
+
+					// TODO: set original values and then work from those instead of constant addition/subtraction
+
+					// calc cycle length as ms
+					var msCycleTime = slider.oscFreq * 100;  // oscFreq in 100ms intervals
+					var degs = cycle % msCycleTime;
+
+					// mod current time by calced cycle length
+					var radians = (degs / 360) * (Math.PI / 180); //simplify
+					var modifier = Math.sin(radians) * slider.oscAmp;
+
+					var val = slider.$el.val();
+					var valArr = val.split(',');
+					if (valArr.length == 1) {
+						slider.$el.slider('setValue', parseFloat(val) + modifier);
+						console.log("setting: " + (parseFloat(val) + modifier))
+					} else {
+						slider.$el.slider('setValue', [parseFloat(val[0]) + modifier, parseFloat(val[1]) + modifier]);
+					}
+					//$slider.slider( "option", "value", val);
+
+					slider.$el.trigger('slide');
+				});
+
+			}, 100);
+		}
+
+	});
 
 });
 

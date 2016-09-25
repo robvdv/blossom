@@ -40,6 +40,7 @@
   <div class="col-sm-3">
     <button id="send-points">Send Points</button>
     <button id="send-wave">Send Wave</button>
+    <button id="oscillate">Oscillate</button>
   </div>
 </div>
 
@@ -78,112 +79,112 @@
     <div class="col-sm-9">
 
       <div class="row">
-        <div class="col-sm-4">
+        <div class="col-sm-3">
           Tone
         </div>
         <div class="col-sm-1">
           <span class="slider-val"></span>
         </div>
-        <div class="col-sm-7">
-          <input class="slider" id="tone" data-event="tone" type="text" data-slider-min="10" data-slider-max="200"
+        <div class="col-sm-8">
+          <input class="slider parameter" id="tone" data-event="tone" type="text" data-slider-min="10" data-slider-max="200"
                  data-slider-step="1"
                  data-slider-value="65"/>
         </div>
       </div>
 
       <div class="row">
-        <div class="col-sm-4">
+        <div class="col-sm-3">
           Tone Frequency Point Offset
         </div>
         <div class="col-sm-1">
           <span class="slider-val"></span>
         </div>
-        <div class="col-sm-7">
-          <input class="slider" id="tone-frequency-point-offset" data-event="tone frequency ratio" type="text" data-slider-min="0" data-slider-max="100"
+        <div class="col-sm-8">
+          <input class="slider parameter" id="tone-frequency-point-offset" data-event="tone frequency ratio" type="text" data-slider-min="0" data-slider-max="100"
                  data-slider-step="1"
                  data-slider-value="4"/>
         </div>
       </div>
 
       <div class="row">
-        <div class="col-sm-4">
+        <div class="col-sm-3">
           Tone Amplitude
         </div>
         <div class="col-sm-1">
           <span class="slider-val"></span>
         </div>
-        <div class="col-sm-7">
-          <input class="slider" id="tone-amplitude" data-event="tone" type="text" data-slider-min="0" data-slider-max="100"
+        <div class="col-sm-8">
+          <input class="slider parameter" id="tone-amplitude" data-event="tone" type="text" data-slider-min="0" data-slider-max="100"
                  data-slider-step="1"
                  data-slider-value="4"/>
         </div>
       </div>
 
         <div class="row">
-            <div class="col-sm-4">
+            <div class="col-sm-3">
                 Points in frame
             </div>
             <div class="col-sm-1">
                 <span class="slider-val"></span>
             </div>
-            <div class="col-sm-7">
-                <input class="slider" id="points-per-frame" data-event="points per frame" type="text" data-slider-min="2" data-slider-max="120"
+            <div class="col-sm-8">
+                <input class="slider parameter" id="points-per-frame" data-event="points per frame" type="text" data-slider-min="2" data-slider-max="120"
                        data-slider-step="1"
                        data-slider-value="80"/>
             </div>
         </div>
 
         <div class="row">
-            <div class="col-sm-4">
+            <div class="col-sm-3">
                 Bias X
             </div>
             <div class="col-sm-1">
                 <span class="slider-val"></span>
             </div>
-            <div class="col-sm-7">
-                <input class="slider" id="bias-x" data-event="bias x" type="text" data-slider-min="-20" data-slider-max="20"
+            <div class="col-sm-8">
+                <input class="slider parameter" id="bias-x" data-event="bias x" type="text" data-slider-min="-20" data-slider-max="20"
                        data-slider-step="1"
                        data-slider-value="10"/>
             </div>
         </div>
 
         <div class="row">
-            <div class="col-sm-4">
+            <div class="col-sm-3">
                 Bias y
             </div>
             <div class="col-sm-1">
                 <span class="slider-val"></span>
             </div>
-            <div class="col-sm-7">
-                <input class="slider" id="bias-y" data-event="bias y" type="text" data-slider-min="-20" data-slider-max="20"
+            <div class="col-sm-8">
+                <input class="slider parameter" id="bias-y" data-event="bias y" type="text" data-slider-min="-20" data-slider-max="20"
                        data-slider-step="1"
                        data-slider-value="10"/>
             </div>
         </div>
 
         <div class="row">
-            <div class="col-sm-4">
+            <div class="col-sm-3">
                 Multiply X
             </div>
             <div class="col-sm-1">
                 <span class="slider-val"></span>
             </div>
-            <div class="col-sm-7">
-                <input class="slider" id="multiply-x" data-event="multiply x" type="text" data-slider-min="0.5" data-slider-max="2"
+            <div class="col-sm-8">
+                <input class="slider parameter" id="multiply-x" data-event="multiply x" type="text" data-slider-min="0.5" data-slider-max="2"
                        data-slider-step="0.01"
                        data-slider-value="1"/>
             </div>
         </div>
 
         <div class="row">
-            <div class="col-sm-4">
+            <div class="col-sm-3">
                 Multiply y
             </div>
             <div class="col-sm-1">
                 <span class="slider-val"></span>
             </div>
-            <div class="col-sm-7">
-                <input class="slider" id="multiply-y" data-event="multiply y" type="text" data-slider-min="0.5" data-slider-max="2"
+            <div class="col-sm-8">
+                <input class="slider parameter" id="multiply-y" data-event="multiply y" type="text" data-slider-min="0.5" data-slider-max="2"
                        data-slider-step="0.01"
                        data-slider-value="1"/>
               </div>
@@ -191,90 +192,90 @@
     
 
       <div class="row">
-        <div class="col-sm-4">
+        <div class="col-sm-3">
           Circle Size
         </div>
         <div class="col-sm-1">
           <span class="slider-val"></span>
 
         </div>
-        <div class="col-sm-7">
-          <input class="slider" id="circle-size" data-event="circle size" type="text" data-slider-min="0"
+        <div class="col-sm-8">
+          <input class="slider parameter" id="circle-size" data-event="circle size" type="text" data-slider-min="0"
                  data-slider-max="66" data-slider-step="1"
                  data-slider-value="45"/>
         </div>
       </div>
 
       <div class="row">
-        <div class="col-sm-4">
+        <div class="col-sm-3">
           Circle Ratio
         </div>
         <div class="col-sm-1">
           <span class="slider-val"></span>
 
         </div>
-        <div class="col-sm-7">
-          <input class="slider" id="circle-ratio" data-event="circle ratio" type="text" data-slider-min="0"
+        <div class="col-sm-8">
+          <input class="slider parameter" id="circle-ratio" data-event="circle ratio" type="text" data-slider-min="0"
                  data-slider-max="100"
                  data-slider-step="1" data-slider-value="50"/>
         </div>
       </div>
 
       <div class="row">
-        <div class="col-sm-4">
+        <div class="col-sm-3">
           Small circle phase
         </div>
         <div class="col-sm-1">
           <span class="slider-val"></span>
 
         </div>
-        <div class="col-sm-7">
-          <input class="slider" id="circle-size-small" data-event="circle size small" type="text"
+        <div class="col-sm-8">
+          <input class="slider parameter" id="circle-size-small" data-event="circle size small" type="text"
                  data-slider-min="1" data-slider-max="10"
                  data-slider-step="1" data-slider-value="6"/>
         </div>
       </div>
 
       <div class="row">
-        <div class="col-sm-4">
+        <div class="col-sm-3">
           Red Phase
         </div>
         <div class="col-sm-1">
           <span class="slider-val"></span>
 
         </div>
-        <div class="col-sm-7">
-          <input class="slider" id="phase-red" data-event="phase red" type="text" data-slider-min="0"
+        <div class="col-sm-8">
+          <input class="slider parameter" id="phase-red" data-event="phase red" type="text" data-slider-min="0"
                  data-slider-max="100"
                  data-slider-step="1" data-slider-value="[66, 100]"/>
         </div>
       </div>
 
       <div class="row">
-        <div class="col-sm-4">
+        <div class="col-sm-3">
           Green Phase
         </div>
         <div class="col-sm-1">
           <span class="slider-val"></span>
 
         </div>
-        <div class="col-sm-7">
-          <input class="slider" id="phase-green" data-event="phase red" type="text" data-slider-min="0"
+        <div class="col-sm-8">
+          <input class="slider parameter" id="phase-green" data-event="phase red" type="text" data-slider-min="0"
                  data-slider-max="100"
                  data-slider-step="1" data-slider-value="[33,66]"/>
         </div>
       </div>
 
       <div class="row">
-        <div class="col-sm-4">
+        <div class="col-sm-3">
           Blue Phase
         </div>
         <div class="col-sm-1">
           <span class="slider-val"></span>
 
         </div>
-        <div class="col-sm-7">
-          <input class="slider" id="phase-blue" data-event="phase blue" type="text" data-slider-min="0"
+        <div class="col-sm-8">
+          <input class="slider parameter" id="phase-blue" data-event="phase blue" type="text" data-slider-min="0"
                  data-slider-max="100"
                  data-slider-step="1" data-slider-value="[0,33]"/>
         </div>
@@ -299,7 +300,7 @@
 
         </canvas>
       </div>
-      <div class="col-sm-4">
+      <div class="col-sm-3">
         <canvas id="wavePattern" width= "360" height="255">
 
         </canvas>
